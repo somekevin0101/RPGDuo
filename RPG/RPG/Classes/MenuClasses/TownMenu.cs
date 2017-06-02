@@ -36,7 +36,7 @@ namespace RPG.Classes.MenuClasses
             Int32.TryParse(userHeroChoice, out parsedHeroChoice);
 
 
-            var player = selector.SelectHero(parsedHeroChoice);
+            Hero player = selector.SelectHero(parsedHeroChoice);
 
             Console.WriteLine("You're alive " + player.Name + ", and you find yourself a bit dazed and confused");
             Console.WriteLine("at the entrance of a town.......");
@@ -57,28 +57,28 @@ namespace RPG.Classes.MenuClasses
                 if (input == "1" || input == "(1)")
                 {
                     StoreMenu store = new StoreMenu();
-                    store.Display();
+                    store.Display(player);
 
                 }
                 else if (input == "2" || input == "(2)")
                 {
                     BattleMenu battle = new BattleMenu();
-                    battle.Display();
+                    battle.Display(player);
                 }
                 else if (input == "3" || input == "(3)")
                 {
                     CasinoMenu casino = new CasinoMenu();
-                    casino.Display();
+                    casino.Display(player);
                 }
                 else if (input == "4" || input == "(4)")
                 {
                     HallMenu hall = new HallMenu();
-                    hall.Display();
+                    hall.Display(player);
                 }
                 else if (input == "5" || input == "(5)")
                 {
                     InnMenu inn = new InnMenu();
-                    inn.Display();
+                    inn.Display(player);
                 }
 
                 else if (input == "Q" || input == "q" || input == "(Q)" || input == "(q)")

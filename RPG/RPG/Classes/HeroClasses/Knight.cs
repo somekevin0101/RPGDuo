@@ -19,6 +19,7 @@ namespace RPG.Classes.HeroClasses
             strength = 12;
             money = 15;
             luck = 5;
+            reputation = 10;
         }
 
     }

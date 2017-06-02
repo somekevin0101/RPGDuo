@@ -12,7 +12,7 @@ namespace RPG.Classes.MenuClasses
 {
     public class BattleMenu
     {
-        public void Display()
+        public void Display(Hero player)
         {
             Console.WriteLine("You enter a large arena, a few local citizens watch from the stands");
             while (true)
@@ -25,6 +25,11 @@ namespace RPG.Classes.MenuClasses
 
                 if (input == "1" || input == "(1)")
                 {
+                    if(player.Name == "Boogersnot")
+                    {
+                        Console.WriteLine("You enter the arena and as you walk around a large crowd fills the stadium.");
+                        Console.WriteLine("The crowd begins to chant 'BOOGERSNOT! BOOGERSNOT! BOOGERSNOT! BOOGERSNOT'");
+                    }
                     Console.WriteLine("Get ready for battle");
                 }
                 else if (input == "2" || input == "(2)")

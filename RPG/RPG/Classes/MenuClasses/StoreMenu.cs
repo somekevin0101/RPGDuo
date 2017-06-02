@@ -12,7 +12,7 @@ namespace RPG.Classes.MenuClasses
 {
     public class StoreMenu
     {
-        public void Display()
+        public void Display(Hero player)
         {
             Console.WriteLine("You see an aged warrior behind the counter. He asks you what you want to buy");
             while (true)
@@ -25,7 +25,11 @@ namespace RPG.Classes.MenuClasses
 
                 if (input == "1" || input == "(1)")
                 {
-                    Console.WriteLine("We have many fine weapons");
+                    if(player is Archer)
+                    {
+                        Console.WriteLine("You have the look of a coward about you, I'm sorry but we don't carry bows and arrows");
+                    }
+                    Console.WriteLine("We have many fine weapons befitting a hero");
                     Console.WriteLine("");
 
                 }

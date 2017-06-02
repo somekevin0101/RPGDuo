@@ -83,7 +83,14 @@ namespace RPG.Classes
         {
             currentHitPoints += change;
         }
-
+        public void ChangeReputation(int amount)
+        {
+            reputation += amount;
+        }
+        public void ChangeMoney(int amount)
+        {
+            money += amount;
+        }
         public void Rest()
         {
             strength = maxStrength;

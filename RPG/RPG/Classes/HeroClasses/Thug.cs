@@ -20,6 +20,7 @@ namespace RPG.Classes
             strength = 10;
             money = 35;
             luck = 10;
+            reputation = 0;
             // potion and weapon list will have nothing in them to start
         }
     }

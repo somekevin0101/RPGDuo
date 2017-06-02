@@ -12,7 +12,7 @@ namespace RPG.Classes.MenuClasses
 {
     public class HallMenu
     {
-        public void Display()
+        public void Display(Hero player)
         {
             Console.WriteLine("A room with distinguished looking people sitting at a table");
             while (true)
@@ -26,11 +26,32 @@ namespace RPG.Classes.MenuClasses
                 {
                     Console.WriteLine("We shall see if there is anything for someone of your reputation");
                     Console.WriteLine("");
+                    if(player.Reputation > 100)
+                    {
+                        Console.WriteLine("We need a brave soul to restore order to the roads that lead");
+                        Console.WriteLine("outside of our town");
+                        Console.WriteLine("");
+                        Console.WriteLine("Do you accept this quest?(Y/N)");
+                        string userInput = Console.ReadLine().ToUpper();
+                        if(userInput == "Y")
+                        {
+                            Console.WriteLine("Excellent!");
+                            // quest method to follow
+                        }
+                        else
+                        {
+                            player.ChangeReputation(-10);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("You are not a trustworthy character, we have no quests for you");
+                    }
 
                 }
                 else if (input == "Q" || input == "(Q)")
                 {
-                    Console.WriteLine("Happy Hunting!");
+                    Console.WriteLine("Goodbye!");
                     Console.WriteLine("");
                     break;
                 }

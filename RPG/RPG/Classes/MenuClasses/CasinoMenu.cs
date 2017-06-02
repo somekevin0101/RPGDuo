@@ -12,7 +12,7 @@ namespace RPG.Classes.MenuClasses
 {
     public class CasinoMenu
     {
-        public void Display()
+        public void Display(Hero player)
         {
             Console.WriteLine("The smell of sour beer fills the room, it appears you can choose to play a game or drink beer");
             while (true)
