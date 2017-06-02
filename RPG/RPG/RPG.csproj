@@ -45,6 +45,17 @@
     <Compile Include="Classes\EnemyClasses\Dragon.cs" />
     <Compile Include="Classes\EnemyClasses\Enemy.cs" />
     <Compile Include="Classes\EnemyClasses\Goblin.cs" />
+    <Compile Include="Classes\HeroClasses\Archer.cs" />
+    <Compile Include="Classes\HeroClasses\Barbarian.cs" />
+    <Compile Include="Classes\HeroClasses\Knight.cs" />
+    <Compile Include="Classes\HeroClasses\Priest.cs" />
+    <Compile Include="Classes\MenuClasses\BattleMenu.cs" />
+    <Compile Include="Classes\MenuClasses\CasinoMenu.cs" />
+    <Compile Include="Classes\MenuClasses\HallMenu.cs" />
+    <Compile Include="Classes\MenuClasses\HeroSelector.cs" />
+    <Compile Include="Classes\MenuClasses\InnMenu.cs" />
+    <Compile Include="Classes\MenuClasses\StoreMenu.cs" />
+    <Compile Include="Classes\MenuClasses\TownMenu.cs" />
     <Compile Include="Classes\WeaponClasses\BroadSword.cs" />
     <Compile Include="Classes\WeaponClasses\Dagger.cs" />
     <Compile Include="Classes\ItemClasses\HealthPotion.cs" />

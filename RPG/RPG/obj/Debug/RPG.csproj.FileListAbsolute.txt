@@ -1,1 +1,7 @@
 C:\Users\Kevin Somerville\documents\visual studio 2017\Projects\RPG\RPG\obj\Debug\RPG.csprojResolveAssemblyReference.cache
+C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\obj\Debug\RPG.csprojResolveAssemblyReference.cache
+C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\bin\Debug\RPG.exe.config
+C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\bin\Debug\RPG.exe
+C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\bin\Debug\RPG.pdb
+C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\obj\Debug\RPG.exe
+C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\obj\Debug\RPG.pdb

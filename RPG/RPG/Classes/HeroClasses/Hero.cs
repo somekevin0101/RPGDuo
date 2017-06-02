@@ -63,6 +63,11 @@ namespace RPG.Classes
         {
             get { return this.endurance; }
         }
+        protected int luck;
+        public int Luck
+        {
+            get { return this.luck; }
+        }
 
         protected List<HealthPotion> potion;
         public List<HealthPotion> Potion
