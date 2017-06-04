@@ -49,11 +49,13 @@
     <Compile Include="Classes\HeroClasses\Barbarian.cs" />
     <Compile Include="Classes\HeroClasses\Knight.cs" />
     <Compile Include="Classes\HeroClasses\Priest.cs" />
+    <Compile Include="Classes\Interfaces\IRumorDAL.cs" />
     <Compile Include="Classes\MenuClasses\BattleMenu.cs" />
     <Compile Include="Classes\MenuClasses\CasinoMenu.cs" />
     <Compile Include="Classes\MenuClasses\HallMenu.cs" />
     <Compile Include="Classes\MenuClasses\HeroSelector.cs" />
     <Compile Include="Classes\MenuClasses\InnMenu.cs" />
+    <Compile Include="Classes\MenuClasses\SQLRumorsDAL.cs" />
     <Compile Include="Classes\MenuClasses\StoreMenu.cs" />
     <Compile Include="Classes\MenuClasses\TownMenu.cs" />
     <Compile Include="Classes\WeaponClasses\BroadSword.cs" />
@@ -71,5 +73,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="SQLScripts\RPGduoScript.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

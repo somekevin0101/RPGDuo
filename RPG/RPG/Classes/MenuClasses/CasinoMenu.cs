@@ -41,6 +41,15 @@ namespace RPG.Classes.MenuClasses
                     Console.WriteLine("You walk through the casino and strike up a conversation with a talkative patron");
                     Console.WriteLine("");
 
+                    SQLRumorsDAL rumor = new SQLRumorsDAL();
+                    List<string> rumors = new List<string>();
+                    rumors = rumor.GetRumor(player);
+
+                    string newRumor = GetRandomRumor(rumors);
+                    Console.WriteLine(newRumor);
+
+                    
+
                 }
 
                 else if (input == "Q" || input == "(Q)")
@@ -49,8 +58,26 @@ namespace RPG.Classes.MenuClasses
                     Console.WriteLine("");
                     break;
                 }
-            }
 
+            }
+        }
+        public string GetRandomRumor(List<string> rumors)
+        {
+            string rumor = "";
+            int count = rumors.Count();
+
+            if(count > 0)
+            {
+                Random random = new Random();
+
+                int num = random.Next(0, count - 1);
+                rumor = rumors[num];
+            }
+            else
+            {
+                rumor = "the bar is empty";
+            }
+            return rumor;
         }
     }
 }
