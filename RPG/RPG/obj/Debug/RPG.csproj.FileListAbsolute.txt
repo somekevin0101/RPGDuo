@@ -5,3 +5,4 @@ C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\bin\Debug\RPG.exe
 C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\bin\Debug\RPG.pdb
 C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\obj\Debug\RPG.exe
 C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\obj\Debug\RPG.pdb
+C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\bin\Debug\SQLScripts\RPGDuoScript.sql

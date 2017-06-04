@@ -74,7 +74,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="SQLScripts\RPGduoScript.sql">
+    <Content Include="SQLScripts\RPGDuoScript.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

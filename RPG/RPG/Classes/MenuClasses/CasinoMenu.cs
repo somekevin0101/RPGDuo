@@ -47,8 +47,8 @@ namespace RPG.Classes.MenuClasses
 
                     string newRumor = GetRandomRumor(rumors);
                     Console.WriteLine(newRumor);
-
-                    
+                    Console.WriteLine("");
+                    Console.WriteLine("");
 
                 }
 
@@ -66,7 +66,7 @@ namespace RPG.Classes.MenuClasses
             string rumor = "";
             int count = rumors.Count();
 
-            if(count > 0)
+            if (count > 0)
             {
                 Random random = new Random();
 
