@@ -27,7 +27,7 @@ insert into Rumor (RumorText)
 ('If you manage to kill the dragon it will prove you can be trusted with any quest'),
 ('After my reputation was tarnished and I was kicked out of my house,
  I went to the inn to sleep. That mean lady made me sleep with the horses, but I still felt refreshed in the morning'),
- ('If you inquire about a quest at the hall, and then decide not to do it you will make those crotchety old coucil members upset'),
+ ('If you inquire about a quest at the hall, and then decide not to do it you will make those crotchety old council members upset'),
  ('It''s good to be lucky at the games but only up to a certain point. They''ll likely think you''re cheating'),
  ('I once wanted to be a hero, but I came to the conclusion that only god can choose who will do great things in this world'),
  ('In this world you only have one chance at things, there are no do overs. I had a friend who lost his life in the arena and he''s gone forever. I''ve heard others talk of a way to go back and try again, but that''s a fools belief.'),

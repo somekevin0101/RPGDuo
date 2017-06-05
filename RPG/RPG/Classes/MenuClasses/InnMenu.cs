@@ -55,6 +55,7 @@ namespace RPG.Classes.MenuClasses
                     Console.WriteLine("Endurance: " + player.Endurance.ToString());
                     Console.WriteLine("Luck : " + player.Luck.ToString());
                     Console.WriteLine("Reputation :" + player.Reputation.ToString());
+                    Console.WriteLine("Money : " + player.Money.ToString());
                 }
 
                 else if (input == "Q" || input == "(Q)")
