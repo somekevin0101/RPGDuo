@@ -30,11 +30,16 @@ namespace RPG.Classes.MenuClasses
 
                 if (input == "1" || input == "(1)")
                 {
-                    if(player.Money >= 20)
+                    if(player.Money >= 5)
                     {
-                        if (player.Reputation > 10)
+                        if (player.Reputation >= 50)
                         {
                             Console.WriteLine("Only the finest for a person of your repute");
+                            Console.WriteLine("");
+                        }
+                        else if (player.Reputation >= 10)
+                        {
+                            Console.WriteLine("We have a modest room that was just tidied up");
                             Console.WriteLine("");
                         }
                         else
@@ -42,7 +47,11 @@ namespace RPG.Classes.MenuClasses
                             Console.WriteLine("You can sleep in the stables");
                         }
                         player.Rest();
-                        player.ChangeMoney(-20);
+                        player.ChangeMoney(-5);
+                    }
+                    else
+                    {
+                        Console.WriteLine("A room costs 5 coin, you can't stay here");
                     }
 
                 }

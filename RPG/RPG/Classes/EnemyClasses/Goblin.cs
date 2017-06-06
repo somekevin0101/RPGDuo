@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG.Classes.EnemyClasses
 {
-    public class Goblin : Enemy, ICharacter
+    public class Goblin : Enemy, IFight
     {
         public Goblin()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG.Classes.EnemyClasses
 {
-    public class Dragon : Enemy, ICharacter
+    public class Dragon : Enemy, IFight
     {
         public Dragon()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG.Classes
 {
-    public class Thug : Hero , ICharacter
+    public class Thug : Hero , IFight
     {
         // might want to add parameters for adding to traits if giving that option to user
         public Thug(string name)

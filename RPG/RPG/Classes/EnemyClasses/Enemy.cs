@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG.Classes.EnemyClasses
 {
-    public abstract class Enemy : ICharacter
+    public abstract class Enemy : IFight
     {
         protected int maxHitPoints;
         public int MaxHitPoints

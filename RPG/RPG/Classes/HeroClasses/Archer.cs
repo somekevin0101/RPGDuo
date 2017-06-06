@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG.Classes.HeroClasses
 {
-    public class Archer : Hero, ICharacter
+    public class Archer : Hero, IFight
     {
         public Archer(string name)
         {

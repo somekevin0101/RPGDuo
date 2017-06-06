@@ -28,6 +28,31 @@ namespace RPG.Classes.MenuClasses
                 {
                     Console.WriteLine("The barkeep asks you how many beers you want");
                     Console.WriteLine("");
+                    Console.WriteLine("A beer will cost you 2 coin each, enter the number you would like to purchase and drink");
+
+                    string userInput = Console.ReadLine();
+                    int beersBought = 0;
+                    Int32.TryParse(userInput, out beersBought);
+                    // mechanic for increasing or decreasing stats on beer consumption needs to be changed. right
+                    // now you can make multiple purchases and it increases/decreases player stats. possible fix is bool parameter
+                    // in hero class that can be reset to true after resting. can only purchase beer while true, a 
+                    // little awkward though.
+
+                    if(beersBought * 2 == 0)
+                    {
+                        Console.WriteLine("You might want to try again, you didn't order any beer");
+                    }
+                    else if(beersBought * 2 <= player.Money)
+                    {
+                        Console.WriteLine("You purchased " + beersBought + " beers");
+                        player.BuyBeer(beersBought);
+                        player.DrinkBeer(beersBought);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Sorry you don't have enough money for that much beer");
+                    }
+                    
 
                 }
                 else if (input == "2" || input == "(2)")

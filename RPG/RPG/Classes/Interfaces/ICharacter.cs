@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG.Classes
 {
-    public interface ICharacter
+    public interface IFight
     {
 
         void Fight();

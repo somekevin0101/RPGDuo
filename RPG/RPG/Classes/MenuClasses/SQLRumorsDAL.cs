@@ -21,8 +21,6 @@ namespace RPG.Classes.MenuClasses
 
             try
             {
-
-
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     string query = "select RumorText from Rumor inner join Hero_Rumor on Rumor.RumorID = Hero_Rumor.RumorID inner join HeroType on HeroType.HeroID = Hero_Rumor.HeroID where HeroType.Hero = @type;";

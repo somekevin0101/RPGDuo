@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG.Classes
 {
-    public abstract class Hero : ICharacter
+    public abstract class Hero : IFight
     {
         protected string name;
         public string Name
@@ -100,8 +100,10 @@ namespace RPG.Classes
             {
                 currentHitPoints = maxHitPoints;
             }
-            Console.WriteLine("your current hitpoints is" + currentHitPoints);
+            Console.WriteLine("your current hitpoints is " + currentHitPoints);
             Console.WriteLine("your strength and endurance have been restored to maximum");
+            Console.WriteLine("");
+
         }
         public void AddPotion()
         {
@@ -153,20 +155,20 @@ namespace RPG.Classes
         }
         public virtual void BuyBeer(int numberOfBeers)
         {
-            money -= Math.Abs(numberOfBeers * 5);
-            Console.WriteLine("your current number of coins is" + money);
+            money -= Math.Abs(numberOfBeers * 2);
+            Console.WriteLine("your current number of coins is " + money);
         }
         // the buying of beer and reduction in money will happen in the bar menu object
         public virtual void DrinkBeer(int numberOfBeers)
         {
-            if ((numberOfBeers > 0) && (numberOfBeers < 3))
+            if ((numberOfBeers > 0) && (numberOfBeers <= 3))
             {
                 
                 endurance += 10;
                 strength += 10;
                 Console.WriteLine("you feel a bit stronger now");
             }
-            else if ((numberOfBeers > 3) && (numberOfBeers < 10))
+            else if ((numberOfBeers > 3) && (numberOfBeers <= 10))
             {
                
                 endurance -= 5;
@@ -184,7 +186,7 @@ namespace RPG.Classes
             else 
             {
                 Console.WriteLine("the barkeep uses an arcane absolute value calculation and charges you accordingly");
-                Console.WriteLine("no beer for you");
+                Console.WriteLine("no beer for you ");
             }
         }
         // to be added to damage from weapon (or 0 if no weapon)
