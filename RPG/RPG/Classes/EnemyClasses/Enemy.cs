@@ -44,6 +44,10 @@ namespace RPG.Classes.EnemyClasses
             return randomDamage;
 
         }
+        public virtual void DeathShriek()
+        {
+            Console.WriteLine("Arrrrrrghhhhh I'm Deaaaad!!!!");
+        }
         public void Fight()
         {
 

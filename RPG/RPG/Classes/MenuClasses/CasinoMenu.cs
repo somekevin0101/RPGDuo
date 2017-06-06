@@ -44,6 +44,7 @@ namespace RPG.Classes.MenuClasses
                     }
                     else if(beersBought * 2 <= player.Money)
                     {
+                        Console.WriteLine("");
                         Console.WriteLine("You purchased " + beersBought + " beers");
                         player.BuyBeer(beersBought);
                         player.DrinkBeer(beersBought);

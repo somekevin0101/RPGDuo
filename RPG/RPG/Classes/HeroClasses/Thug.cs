@@ -18,9 +18,9 @@ namespace RPG.Classes
             endurance = 10;
             maxStrength = 10;
             strength = 10;
-            money = 35;
+            money = 65;
             luck = 10;
-            reputation = 0;
+            reputation = 5;
             // potion and weapon list will have nothing in them to start
         }
     }

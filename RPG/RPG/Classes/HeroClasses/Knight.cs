@@ -17,9 +17,9 @@ namespace RPG.Classes.HeroClasses
             endurance = 15;
             maxStrength = 12;
             strength = 12;
-            money = 15;
+            money = 25;
             luck = 5;
-            reputation = 10;
+            reputation = 15;
         }
 
     }

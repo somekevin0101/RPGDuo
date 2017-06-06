@@ -16,5 +16,11 @@ namespace RPG.Classes.EnemyClasses
             endurance = 20;
             reputationIncreaseUponDeath = 100;
         }
+
+        public override void DeathShriek()
+        {
+            Console.WriteLine("RRRRROOOOOOAAAAAAR!!!!!!! Cough cough.....");
+            Console.WriteLine("The dragon dies.....");
+        }
     }
 }

@@ -11,12 +11,12 @@ namespace RPG.Classes.HeroClasses
         public Archer(string name)
         {
             this.name = name;
-            maxHitPoints = 100;
+            maxHitPoints = 110;
             currentHitPoints = 100;
-            maxEndurance = 15;
-            endurance = 15;
-            maxStrength = 12;
-            strength = 12;
+            maxEndurance = 13;
+            endurance = 13;
+            maxStrength = 11;
+            strength = 11;
             money = 15;
             luck = 5;
             reputation = 10;

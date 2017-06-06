@@ -14,7 +14,7 @@ namespace RPG.Classes.EnemyClasses
             currentHitPoints = 100;
             baseDamage = 10;
             endurance = 10;
-            reputationIncreaseUponDeath = 20;
+            reputationIncreaseUponDeath = 25;
 
         }
     }

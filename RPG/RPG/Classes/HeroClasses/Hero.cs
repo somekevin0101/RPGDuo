@@ -32,7 +32,6 @@ namespace RPG.Classes
             get { return this.maxStrength; }
         }
 
-
         protected int strength;
         public int Strength
         {
@@ -63,10 +62,17 @@ namespace RPG.Classes
         {
             get { return this.endurance; }
         }
+
         protected int luck;
         public int Luck
         {
             get { return this.luck; }
+        }
+
+        protected int beersDrunk;
+        public int BeersDrunk
+        {
+            get { return this.beersDrunk; }
         }
 
         protected List<HealthPotion> potion;
@@ -74,19 +80,23 @@ namespace RPG.Classes
         {
             get { return this.potion; }
         }
+
         protected List<Weapon> weapon;
         public List<Weapon> Weapon
         {
             get { return this.Weapon; }
         }
+
         public void ChangeHitPoints(int change)
         {
             currentHitPoints += change;
         }
+
         public void ChangeReputation(int amount)
         {
             reputation += amount;
         }
+
         public void ChangeMoney(int amount)
         {
             money += amount;
@@ -95,11 +105,13 @@ namespace RPG.Classes
         {
             strength = maxStrength;
             endurance = maxEndurance;
+            beersDrunk = 0;
 
             if(currentHitPoints < maxHitPoints)
             {
                 currentHitPoints = maxHitPoints;
             }
+
             Console.WriteLine("your current hitpoints is " + currentHitPoints);
             Console.WriteLine("your strength and endurance have been restored to maximum");
             Console.WriteLine("");
@@ -125,10 +137,12 @@ namespace RPG.Classes
         {
             return (potion.Count > 0);
         }
+
         public bool HasWeapon(List<Weapon> weapon)
         {
             return (weapon.Count > 0);
         }
+
         public bool IsDead(Hero hero)
         {
             // logic on this method may need work
@@ -153,40 +167,63 @@ namespace RPG.Classes
             }
             
         }
+
         public virtual void BuyBeer(int numberOfBeers)
         {
             money -= Math.Abs(numberOfBeers * 2);
             Console.WriteLine("your current number of coins is " + money);
+            Console.WriteLine("");
         }
-        // the buying of beer and reduction in money will happen in the bar menu object
+        
         public virtual void DrinkBeer(int numberOfBeers)
         {
-            if ((numberOfBeers > 0) && (numberOfBeers <= 3))
+            // it does not pay to try to cheat the barkeep
+            if(numberOfBeers < 0)
             {
-                
+                Console.WriteLine("the barkeep uses an arcane absolute value calculation and charges you accordingly");
+                Console.WriteLine("no beer for you and your reputation suffers");
+                Console.WriteLine("");
+
+                endurance -= 10;
+                strength -= 10;
+                reputation -= 5;
+
+                beersDrunk += Math.Abs(numberOfBeers);
+            }
+
+            beersDrunk += numberOfBeers;
+
+            if ((beersDrunk > 0) && (beersDrunk <= 2))
+            {
                 endurance += 10;
                 strength += 10;
+
                 Console.WriteLine("you feel a bit stronger now");
+                Console.WriteLine("");
             }
-            else if ((numberOfBeers > 3) && (numberOfBeers <= 10))
+            else if ((beersDrunk > 2) && (beersDrunk <= 10))
             {
                
-                endurance -= 5;
-                strength -= 5;
+                endurance -= 3;
+                strength -= 3;
+
                 Console.WriteLine("you're feeling a bit tipsy");
+                Console.WriteLine("");
             }
-            else if (numberOfBeers > 10)
+            else if (beersDrunk > 10)
             {
                 
-                reputation -= 10;
-                endurance -= 15;
-                strength -= 15;
+                reputation -= 5;
+                endurance -= 10;
+                strength -= 10;
+
                 Console.WriteLine("you better not fight in this condition buddy, you're drunk");
+                Console.WriteLine("go rest at the inn and sleep it off");
+                Console.WriteLine("");
             }
             else 
             {
-                Console.WriteLine("the barkeep uses an arcane absolute value calculation and charges you accordingly");
-                Console.WriteLine("no beer for you ");
+                beersDrunk = 0;
             }
         }
         // to be added to damage from weapon (or 0 if no weapon)
@@ -196,10 +233,12 @@ namespace RPG.Classes
             int baseDamage = (strength * random.Next(1, 100)) / 100;
             return baseDamage;
         }
+
         public void Fight()
         {
 
         }
+
         public bool Flee()
         {
             return true;
