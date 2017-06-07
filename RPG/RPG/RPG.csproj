@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CasinoGames\Roulette.cs" />
     <Compile Include="Classes\EnemyClasses\Dragon.cs" />
     <Compile Include="Classes\EnemyClasses\Enemy.cs" />
     <Compile Include="Classes\EnemyClasses\Goblin.cs" />

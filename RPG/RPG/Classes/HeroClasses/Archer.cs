@@ -12,7 +12,7 @@ namespace RPG.Classes.HeroClasses
         {
             this.name = name;
             maxHitPoints = 110;
-            currentHitPoints = 100;
+            currentHitPoints = 110;
             maxEndurance = 13;
             endurance = 13;
             maxStrength = 11;
