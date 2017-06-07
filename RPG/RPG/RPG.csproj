@@ -47,6 +47,7 @@
     <Compile Include="Classes\EnemyClasses\Enemy.cs" />
     <Compile Include="Classes\EnemyClasses\Goblin.cs" />
     <Compile Include="Classes\EnemyClasses\Ogre.cs" />
+    <Compile Include="Classes\EnemyClasses\OwlBear.cs" />
     <Compile Include="Classes\EnemyClasses\RatMan.cs" />
     <Compile Include="Classes\HeroClasses\Archer.cs" />
     <Compile Include="Classes\HeroClasses\Barbarian.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Classes\MenuClasses\StoreMenu.cs" />
     <Compile Include="Classes\MenuClasses\TownMenu.cs" />
     <Compile Include="Classes\Single_Combat\CombatMain.cs" />
+    <Compile Include="Classes\StoreHelper\Inventory.cs" />
     <Compile Include="Classes\WeaponClasses\BroadSword.cs" />
     <Compile Include="Classes\WeaponClasses\Dagger.cs" />
     <Compile Include="Classes\ItemClasses\HealthPotion.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Classes\HeroClasses\Hero.cs" />
     <Compile Include="Classes\Interfaces\IItem.cs" />
     <Compile Include="Classes\HeroClasses\Thug.cs" />
+    <Compile Include="Classes\WeaponClasses\Club.cs" />
     <Compile Include="Classes\WeaponClasses\Weapon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

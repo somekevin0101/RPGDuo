@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RPG.Classes
+namespace RPG.Classes.WeaponClasses
 {
-    public class BroadSword : Weapon, IItem
+    public class Club : Weapon, IItem
     {
-        public BroadSword()
+        public Club()
         {
-            cost = 25;
-            baseDamage = 15;
+            cost = 15;
+            baseDamage = 10;
         }
+     
     }
 }

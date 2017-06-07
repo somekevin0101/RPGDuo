@@ -24,14 +24,19 @@ namespace UnitTestProject1
         [TestMethod]
         public void ChangeReputationTest()
         {
-            Knight testKnight = new Knight("bob");
+            Thug testThug = new Thug("bob");
 
-            testKnight.ChangeReputation(-15);
-            Assert.AreEqual(0, testKnight.Reputation);
+            testThug.ChangeReputation(-15);
+            Assert.AreEqual(-10, testThug.Reputation);
 
-            testKnight.ChangeReputation(50);
-            Assert.AreEqual(50, testKnight.Reputation);
+            testThug.ChangeReputation(50);
+            Assert.AreEqual(40, testThug.Reputation);
 
+            testThug.ChangeReputation(1000);
+            Assert.AreEqual(140, testThug.Reputation);
+
+            testThug.ChangeReputation(-300);
+            Assert.AreEqual(40, testThug.Reputation);
         }
 
         [TestMethod]
@@ -43,6 +48,12 @@ namespace UnitTestProject1
             Assert.AreEqual(60, testArcher.CurrentHitPoints);
 
             testArcher.ChangeHitPoints(25);
+            Assert.AreEqual(85, testArcher.CurrentHitPoints);
+
+            testArcher.ChangeHitPoints(1050);
+            Assert.AreEqual(285, testArcher.CurrentHitPoints);
+
+            testArcher.ChangeHitPoints(-100000);
             Assert.AreEqual(85, testArcher.CurrentHitPoints);
         }
 

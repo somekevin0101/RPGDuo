@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPG.Classes.WeaponClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -75,31 +76,69 @@ namespace RPG.Classes
             get { return this.beersDrunk; }
         }
 
-        protected List<HealthPotion> potion;
-        public List<HealthPotion> Potion
+        private List<HealthPotion> potionList = new List<HealthPotion>();
+        public List<HealthPotion> PotionList
         {
-            get { return this.potion; }
+            get
+            {
+                { return this.potionList; }
+                
+            }
         }
 
-        protected List<Weapon> weapon;
-        public List<Weapon> Weapon
+        private List<Weapon> weaponList = new List<Weapon>();
+        public List<Weapon> WeaponList
         {
-            get { return this.Weapon; }
+            get { return this.weaponList; }
         }
 
         public void ChangeHitPoints(int change)
         {
-            currentHitPoints += change;
+            if(change > 200)
+            {
+                currentHitPoints += 200;
+            }
+            else if(change < -200)
+            {
+                currentHitPoints += -200;
+            }
+            else
+            {
+                currentHitPoints += change;
+
+            }
         }
 
         public void ChangeReputation(int amount)
         {
-            reputation += amount;
+            if (amount > 100)
+            {
+                reputation += 100;
+            }
+            else if (amount < -100)
+            {
+                reputation += -100;
+            }
+            else
+            {
+                reputation += amount;
+            }
         }
 
         public void ChangeMoney(int amount)
         {
-            money += amount;
+            if(amount > 1000)
+            {
+                amount += 1000;
+            }
+            else if(amount < -1000)
+            {
+                amount += -1000;
+            }
+            else
+            {
+                money += amount;
+            }
         }
         public void Rest()
         {
@@ -119,11 +158,16 @@ namespace RPG.Classes
         }
         public void AddPotion()
         {
-            potion.Add(new HealthPotion());
+            potionList.Add(new HealthPotion());
         }
         public void RemovePotion(List<HealthPotion> potion)
         {
             potion.RemoveAt(0);
+        }
+
+        public void AddWeapon(Weapon weapon)
+        {
+            weaponList.Add(weapon);
         }
 
         //cannot add new instance of an abstract class not sure what to do about this method
@@ -149,15 +193,15 @@ namespace RPG.Classes
             while(true)
             {
 
-                if ((hero.currentHitPoints <= 0) && (hero.HasPotion(potion) == true))
+                if ((hero.currentHitPoints <= 0) && (hero.HasPotion(potionList) == true))
                 {
                     Console.WriteLine("Do you want to drink your potion with your last dying breath? YES/NO");
                     string userInput = Console.ReadLine().ToUpper();
                     if (userInput == "Y" || userInput == "YES")
                     {
                         Console.WriteLine("drinking potion");
-                        potion[0].UseItem(hero);
-                        potion.RemoveAt(0);
+                        potionList[0].UseItem(hero);
+                        potionList.RemoveAt(0);
 
                     }
                     else return currentHitPoints <= 0;

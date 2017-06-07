@@ -19,8 +19,10 @@ namespace RPG.Classes.EnemyClasses
 
         public override void DeathShriek()
         {
+            Console.WriteLine("");
             Console.WriteLine("RRRRROOOOOOAAAAAAR!!!!!!! Cough cough.....");
             Console.WriteLine("The dragon dies.....");
+            Console.WriteLine("");
         }
     }
 }

@@ -34,16 +34,19 @@ namespace RPG.Classes.MenuClasses
                     {
                         if (player.Reputation >= 50)
                         {
+                            Console.WriteLine("");
                             Console.WriteLine("Only the finest for a person of your repute");
                             Console.WriteLine("");
                         }
                         else if (player.Reputation >= 10)
                         {
+                            Console.WriteLine("");
                             Console.WriteLine("We have a modest room that was just tidied up");
                             Console.WriteLine("");
                         }
                         else
                         {
+                            Console.WriteLine("");
                             Console.WriteLine("You can sleep in the stables");
                         }
                         player.Rest();
@@ -51,7 +54,9 @@ namespace RPG.Classes.MenuClasses
                     }
                     else
                     {
-                        Console.WriteLine("A room costs 5 coin, you can't stay here");
+                        Console.WriteLine("");
+                        Console.WriteLine("I'm sorry but you don't have enough money");
+                        Console.WriteLine("");
                     }
 
                 }
@@ -65,6 +70,16 @@ namespace RPG.Classes.MenuClasses
                     Console.WriteLine("Luck : " + player.Luck.ToString());
                     Console.WriteLine("Reputation :" + player.Reputation.ToString());
                     Console.WriteLine("Money : " + player.Money.ToString());
+
+                    foreach(Weapon weapon in player.WeaponList)
+                    {
+                        Console.WriteLine(weapon.GetType().Name);
+                    }
+
+                    foreach(HealthPotion potion in player.PotionList)
+                    {
+                        Console.WriteLine(potion.GetType().Name);
+                    }
                 }
 
                 else if (input == "Q" || input == "(Q)")

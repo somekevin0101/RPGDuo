@@ -8,6 +8,12 @@ namespace RPG.Classes
 {
     public abstract class Weapon : IItem
     {
+        protected int cost;
+        public int Cost
+        {
+            get { return this.cost; }
+        }
+
         protected int baseDamage;
         public int BaseDamage
         {

@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace RPG.Classes.EnemyClasses
 {
-    public class RatMan : Enemy, IFight
+    public class OwlBear : Enemy, IFight
     {
-        public RatMan()
+        public OwlBear()
         {
-            maxHitPoints = 50;
-            currentHitPoints = 50;
-            baseDamage = 5;
-            endurance = 5;
-            reputationIncreaseUponDeath = 10;
+            maxHitPoints = 75;
+            currentHitPoints = 75;
+            baseDamage = 9;
+            endurance = 9;
+            reputationIncreaseUponDeath = 20;
 
         }
 
         public override void DeathShriek()
         {
             Console.WriteLine("");
-            Console.WriteLine("SSQQQEEEEEEKKK SSSQQQUEEEEEK.....squeek");
+            Console.WriteLine("HOOT HOOT ROAARRRR!");
             Console.WriteLine("");
         }
 

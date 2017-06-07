@@ -7,6 +7,8 @@ using RPG.Classes.EnemyClasses;
 using RPG.Classes.HeroClasses;
 using RPG.Classes.MenuClasses;
 using RPG.Classes;
+using RPG.Classes.StoreHelper;
+using RPG.Classes.WeaponClasses;
 
 namespace RPG.Classes.MenuClasses
 {
@@ -31,6 +33,74 @@ namespace RPG.Classes.MenuClasses
                     }
                     Console.WriteLine("We have many fine weapons befitting a hero");
                     Console.WriteLine("");
+
+                    Inventory currentInventory = new Inventory();
+                    List<Weapon> weapons = currentInventory.GetInventory();
+                    currentInventory.PrintInventory(weapons);
+
+                    Console.WriteLine("What weapon would you like to purchase? (1 - 3)");
+                    string userInput = Console.ReadLine();
+
+                    if(userInput == "1")
+                    {
+                        BroadSword sword = new BroadSword();
+                        if(player.Money >= sword.Cost)
+                        {
+                            
+                            player.AddWeapon(sword);
+                            player.ChangeMoney(-sword.Cost);
+
+                            Console.WriteLine("Enjoy your new Broadsword!");
+                            Console.WriteLine("");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You do not have enough money for that");
+                            Console.WriteLine("");
+                        }
+
+                    }
+                    else if(userInput == "2")
+                    {
+                        Club club = new Club();
+                        if(player.Money >= club.Cost)
+                        {
+                            player.AddWeapon(club);
+                            player.ChangeMoney(-club.Cost);
+
+                            Console.WriteLine("That's a mighty club for a mighty warrior! Enjoy!");
+                            Console.WriteLine("");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You do not have enough money for that");
+                            Console.WriteLine("");
+                        }
+                    }
+
+                    else if(userInput == "3")
+                    {
+                        Dagger dagger = new Dagger();
+                        if(player.Money > dagger.Cost)
+                        {
+                            player.AddWeapon(dagger);
+                            player.ChangeMoney(-dagger.Cost);
+
+                            Console.WriteLine("A beautiful dagger, Enjoy!!");
+                            Console.WriteLine("");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You do not have enough money for that");
+                            Console.WriteLine("");
+
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("I didn't catch what you meant, please try again");
+                        Console.WriteLine("");
+                    }
 
                 }
                 else if (input == "2" || input == "(2)")

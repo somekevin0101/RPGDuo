@@ -46,7 +46,9 @@ namespace RPG.Classes.EnemyClasses
         }
         public virtual void DeathShriek()
         {
+            Console.WriteLine("");
             Console.WriteLine("Arrrrrrghhhhh I'm Deaaaad!!!!");
+            Console.WriteLine("");
         }
         public void Fight()
         {
