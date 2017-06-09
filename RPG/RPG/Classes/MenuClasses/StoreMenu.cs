@@ -105,13 +105,50 @@ namespace RPG.Classes.MenuClasses
                 }
                 else if (input == "2" || input == "(2)")
                 {
+                    HealthPotion potion = new HealthPotion();
                     Console.WriteLine("Hmm health potions taste awful but they do heal you");
                     Console.WriteLine("");
+                    if(player.Money > potion.Cost)
+                    {
+                        Console.WriteLine("A health potion will cost you " + potion.Cost + " coin, would you like one?(Y/N)");
+                        string userInput = Console.ReadLine().ToUpper();
+
+                        if(userInput == "Y" || userInput == "YES")
+                        {
+                            player.AddPotion(potion);
+                            player.ChangeMoney(-potion.Cost);
+
+                            Console.WriteLine();
+                            Console.WriteLine("Enjoy your purchase " + player.Name + ("!!!"));
+                            Console.WriteLine();
+                        }
+
+                        else if(userInput == "N" || userInput == "NO")
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Suit yourself buddy");
+                            Console.WriteLine();
+                        }
+
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("I didn't understand you");
+                            Console.WriteLine();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Unfortunately you can't afford the " + potion.Cost + " cost");
+                        Console.WriteLine();
+                    }
                 }
                 else if (input == "Q" || input == "(Q)")
                 {
+                    Console.WriteLine();
                     Console.WriteLine("Have a nice day");
-                    Console.WriteLine("");
+                    Console.WriteLine();
                     break;
                 }
             }

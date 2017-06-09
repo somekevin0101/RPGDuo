@@ -156,9 +156,9 @@ namespace RPG.Classes
             Console.WriteLine("");
 
         }
-        public void AddPotion()
+        public void AddPotion(HealthPotion potion)
         {
-            potionList.Add(new HealthPotion());
+            potionList.Add(potion);
         }
         public void RemovePotion(List<HealthPotion> potion)
         {

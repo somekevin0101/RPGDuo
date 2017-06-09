@@ -16,7 +16,7 @@ namespace RPG.Classes
 
         public HealthPotion()
         {
-            cost = 10;
+            cost = 5;
         }
         // check on if has potion will happen in CLI object
         public void UseItem(Hero hero)
