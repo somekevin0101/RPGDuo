@@ -62,7 +62,7 @@
     <Compile Include="Classes\MenuClasses\SQLRumorsDAL.cs" />
     <Compile Include="Classes\MenuClasses\StoreMenu.cs" />
     <Compile Include="Classes\MenuClasses\TownMenu.cs" />
-    <Compile Include="Classes\Single_Combat\CombatMain.cs" />
+    <Compile Include="Classes\Combat\CombatMain.cs" />
     <Compile Include="Classes\StoreHelper\Inventory.cs" />
     <Compile Include="Classes\WeaponClasses\BroadSword.cs" />
     <Compile Include="Classes\WeaponClasses\Dagger.cs" />

@@ -6,3 +6,6 @@ C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\bin\Debug\RPG.pdb
 C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\obj\Debug\RPG.exe
 C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\obj\Debug\RPG.pdb
 C:\Users\Kevin Somerville\RPGDuo\RPG\RPG\bin\Debug\SQLScripts\RPGDuoScript.sql
+C:\Users\Kevin Ye\Documents\RPGDuo\RPG\RPG\obj\Debug\RPG.csprojResolveAssemblyReference.cache
+C:\Users\Kevin Ye\Documents\RPGDuo\RPG\RPG\obj\Debug\RPG.exe
+C:\Users\Kevin Ye\Documents\RPGDuo\RPG\RPG\obj\Debug\RPG.pdb

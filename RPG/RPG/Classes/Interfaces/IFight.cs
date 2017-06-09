@@ -8,9 +8,8 @@ namespace RPG.Classes
 {
     public interface IFight
     {
-
-        void Fight();
-
+        int currentHealth { get;}
+        bool Fight();
         bool Flee();
 
     }
