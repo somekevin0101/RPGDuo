@@ -34,15 +34,12 @@ namespace RPG.Classes.MenuClasses
                     string userInput = Console.ReadLine();
                     int beersBought = 0;
                     Int32.TryParse(userInput, out beersBought);
-                    // mechanic for increasing or decreasing stats on beer consumption needs to be changed. right
-                    // now you can make multiple purchases and it increases/decreases player stats. possible fix is bool parameter
-                    // in hero class that can be reset to true after resting. can only purchase beer while true, a 
-                    // little awkward though.
 
                     if (beersBought * 2 == 0)
                     {
                         Console.WriteLine("You might want to try again, you didn't order any beer");
                     }
+
                     else if (beersBought * 2 <= player.Money)
                     {
                         Console.WriteLine("");
@@ -50,13 +47,14 @@ namespace RPG.Classes.MenuClasses
                         player.BuyBeer(beersBought);
                         player.DrinkBeer(beersBought);
                     }
+
                     else
                     {
                         Console.WriteLine("Sorry you don't have enough money for that much beer");
                     }
 
-
                 }
+
                 else if (input == "2" || input == "(2)")
                 {
                     Console.WriteLine("An unscrupulous character asks you to place a bet");
@@ -64,6 +62,7 @@ namespace RPG.Classes.MenuClasses
                     PlayRoulette(player);
 
                 }
+
                 else if (input == "3" || input == "(3)")
                 {
                     Console.WriteLine("You walk through the casino and strike up a conversation with a talkative patron");
@@ -89,6 +88,7 @@ namespace RPG.Classes.MenuClasses
 
             }
         }
+
         public string GetRandomRumor(List<string> rumors)
         {
             string rumor = "";
@@ -107,6 +107,7 @@ namespace RPG.Classes.MenuClasses
             }
             return rumor;
         }
+
         public void PlayRoulette(Hero player)
         {
             Roulette roulette = new Roulette();

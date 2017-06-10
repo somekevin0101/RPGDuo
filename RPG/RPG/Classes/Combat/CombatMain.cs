@@ -42,42 +42,43 @@ namespace RPG.Classes.Combat
             throw new NotImplementedException();
         }
 
+        // commented out below to fix compile issues
 
-        public bool IsCombatOver()
-        {
-            if (combatant1 is Hero)
-            {
-                Hero hero1 = (Hero)combatant1;
-                if (hero1.IsDead(hero1))  // ?????????????????????
-                    return true;
-            }
-        }
-        public IFight returnWinner()
-        {
-            if (combatant1.currentHealth <= 0)
-            {
-                return combatant2;
-            }
-            else if (combatant2.currentHealth <= 0)
-            {
-                return combatant1;
-            }
+        //public bool IsCombatOver()
+        //{
+        //    if (combatant1 is Hero)
+        //    {
+        //        Hero hero1 = (Hero)combatant1;
+        //        if (hero1.IsDead(hero1))  // ?????????????????????
+        //            return true;
+        //    }
+        //}
+        //public IFight returnWinner()
+        //{
+        //    if (combatant1.currentHealth <= 0)
+        //    {
+        //        return combatant2;
+        //    }
+        //    else if (combatant2.currentHealth <= 0)
+        //    {
+        //        return combatant1;
+        //    }
 
-            return null;
-        }
-        public IFight returnLoser()
-        {
-            if (combatant1.currentHealth <= 0)
-            {
-                return combatant1;
-            }
-            else if (combatant2.currentHealth <= 0)
-            {
-                return combatant2;
-            }
+        //    return null;
+        //}
+        //public IFight returnLoser()
+        //{
+        //    if (combatant1.currentHealth <= 0)
+        //    {
+        //        return combatant1;
+        //    }
+        //    else if (combatant2.currentHealth <= 0)
+        //    {
+        //        return combatant2;
+        //    }
 
-            return null;
-        }
+        //    return null;
+        //}
 
         public bool Calculate_AttackerHitDefender()
         {

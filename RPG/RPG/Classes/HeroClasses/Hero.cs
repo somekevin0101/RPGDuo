@@ -36,7 +36,26 @@ namespace RPG.Classes
         protected int strength;
         public int Strength
         {
-            get { return this.strength; }
+            get
+            {
+                if(beersDrunk > 0 && beersDrunk < 3)
+                {
+                    return this.strength + 10;
+                }
+                else if(beersDrunk > 3 && beersDrunk < 10)
+                {
+                    return this.strength - 5;
+                }
+                else if (beersDrunk > 10)
+                {
+                    return this.strength - 10;
+                }
+                else
+                {
+                    return this.strength;
+                }
+
+            }
         }
 
         protected int money;
@@ -61,7 +80,23 @@ namespace RPG.Classes
         protected int endurance;
         public int Endurance
         {
-            get { return this.endurance; }
+            get
+            {
+                if (beersDrunk > 0 && beersDrunk < 3)
+                {
+                    return this.endurance + 10;
+                }
+                else if (beersDrunk > 3 && beersDrunk < 10)
+                {
+                    return this.endurance - 5;
+                }
+                else if (beersDrunk > 10)
+                {
+                    return this.endurance - 10;
+                }
+
+                return this.endurance;
+            }
         }
 
         protected int luck;
@@ -76,7 +111,7 @@ namespace RPG.Classes
             get { return this.beersDrunk; }
         }
 
-        private List<HealthPotion> potionList = new List<HealthPotion>();
+        protected List<HealthPotion> potionList = new List<HealthPotion>();
         public List<HealthPotion> PotionList
         {
             get
@@ -86,7 +121,7 @@ namespace RPG.Classes
             }
         }
 
-        private List<Weapon> weaponList = new List<Weapon>();
+        protected List<Weapon> weaponList = new List<Weapon>();
         public List<Weapon> WeaponList
         {
             get { return this.weaponList; }
@@ -142,9 +177,9 @@ namespace RPG.Classes
         }
         public void Rest()
         {
+            beersDrunk = 0;
             strength = maxStrength;
             endurance = maxEndurance;
-            beersDrunk = 0;
 
             if(currentHitPoints < maxHitPoints)
             {
@@ -160,6 +195,7 @@ namespace RPG.Classes
         {
             potionList.Add(potion);
         }
+
         public void RemovePotion(List<HealthPotion> potion)
         {
             potion.RemoveAt(0);
@@ -169,13 +205,6 @@ namespace RPG.Classes
         {
             weaponList.Add(weapon);
         }
-
-        //cannot add new instance of an abstract class not sure what to do about this method
-        // do we need a separate method for each class that inherits from weapon?
-        //public void AddWeapon()
-        //{
-        //    weapon.Add(new Weapon());
-        //}
 
         public bool HasPotion(List<HealthPotion> potion)
         {
@@ -228,8 +257,6 @@ namespace RPG.Classes
                 Console.WriteLine("no beer for you and your reputation suffers");
                 Console.WriteLine("");
 
-                endurance -= 10;
-                strength -= 10;
                 reputation -= 5;
 
                 beersDrunk += Math.Abs(numberOfBeers);
@@ -239,18 +266,11 @@ namespace RPG.Classes
 
             if ((beersDrunk > 0) && (beersDrunk <= 2))
             {
-                endurance += 10;
-                strength += 10;
-
                 Console.WriteLine("you feel a bit stronger now");
                 Console.WriteLine("");
             }
             else if ((beersDrunk > 2) && (beersDrunk <= 10))
             {
-               
-                endurance -= 3;
-                strength -= 3;
-
                 Console.WriteLine("you're feeling a bit tipsy");
                 Console.WriteLine("");
             }
@@ -258,8 +278,6 @@ namespace RPG.Classes
             {
                 
                 reputation -= 5;
-                endurance -= 10;
-                strength -= 10;
 
                 Console.WriteLine("you better not fight in this condition buddy, you're drunk");
                 Console.WriteLine("go rest at the inn and sleep it off");

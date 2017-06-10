@@ -35,7 +35,7 @@ namespace RPG.Classes.MenuClasses
                         if (player.Reputation >= 50)
                         {
                             Console.WriteLine("");
-                            Console.WriteLine("Only the finest for a person of your repute");
+                            Console.WriteLine("Only the finest for a person of your repute " + player.Name);
                             Console.WriteLine("");
                         }
                         else if (player.Reputation >= 10)
