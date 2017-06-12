@@ -9,9 +9,10 @@ namespace RPG.Classes
     public interface IFight
     {
         // commented out due to compile issues
-        //int currentHealth { get;}
+        int CurrentHitPoints { get;}
+        bool IsDead();
         //bool Fight();
-        bool Flee();
+        //  bool Flee();
 
     }
 }

@@ -9,6 +9,8 @@ namespace RPG.Classes
 {
     public abstract class Hero : IFight
     {
+        static int potionsHealFor = 100;
+
         protected string name;
         public string Name
         {
@@ -127,52 +129,39 @@ namespace RPG.Classes
             get { return this.weaponList; }
         }
 
-        public void ChangeHitPoints(int change)
+        public void ChangeHitPoints(int changedAmount)
         {
-            if(change > 200)
+            if(changedAmount > 200)
             {
                 currentHitPoints += 200;
             }
-            else if(change < -200)
+            else if(changedAmount < -200)
             {
                 currentHitPoints += -200;
             }
             else
             {
-                currentHitPoints += change;
+                currentHitPoints += changedAmount;
 
             }
         }
-
-        public void ChangeReputation(int amount)
+        public void ChangeReputation(int changedAmount)
         {
-            if (amount > 100)
-            {
-                reputation += 100;
-            }
-            else if (amount < -100)
-            {
-                reputation += -100;
-            }
-            else
-            {
-                reputation += amount;
-            }
+            reputation += changedAmount;
         }
-
-        public void ChangeMoney(int amount)
+        public void ChangeMoney(int changedAmount)
         {
-            if(amount > 1000)
+            if(changedAmount > 1000)
             {
-                amount += 1000;
+                changedAmount += 1000;
             }
-            else if(amount < -1000)
+            else if(changedAmount < -1000)
             {
-                amount += -1000;
+                changedAmount += -1000;
             }
             else
             {
-                money += amount;
+                money += changedAmount;
             }
         }
         public void Rest()
@@ -216,20 +205,20 @@ namespace RPG.Classes
             return (weapon.Count > 0);
         }
 
-        public bool IsDead(Hero hero)
+        public bool IsDead()
         {
             // logic on this method may need work
             while(true)
             {
 
-                if ((hero.currentHitPoints <= 0) && (hero.HasPotion(potionList) == true))
+                if ((currentHitPoints <= 0) && (HasPotion(potionList) == true))
                 {
                     Console.WriteLine("Do you want to drink your potion with your last dying breath? YES/NO");
                     string userInput = Console.ReadLine().ToUpper();
                     if (userInput == "Y" || userInput == "YES")
                     {
                         Console.WriteLine("drinking potion");
-                        potionList[0].UseItem(hero);
+                        potionList[0].UseItem(this);
                         potionList.RemoveAt(0);
 
                     }
@@ -289,21 +278,29 @@ namespace RPG.Classes
             }
         }
         // to be added to damage from weapon (or 0 if no weapon)
-        public virtual int BaseDamage(int strength)
+        public void DrinkPotion()
+        { 
+            if (!HasPotion(potionList))
+            {
+                return;
+            }
+            else
+            {
+                currentHitPoints += potionsHealFor;
+                if (currentHitPoints > MaxHitPoints)
+                {
+                    currentHitPoints = maxHitPoints;
+                }
+                RemovePotion(potionList);
+            }
+
+        }
+
+        public virtual int DamageDone()
         {
             Random random = new Random();
             int baseDamage = (strength * random.Next(1, 100)) / 100;
             return baseDamage;
-        }
-
-        public void Fight()
-        {
-
-        }
-
-        public bool Flee()
-        {
-            return true;
         }
 
     }

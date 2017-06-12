@@ -12,82 +12,68 @@ namespace RPG.Classes.Combat
         private IFight combatant1;
         private IFight combatant2;
 
+        private int whoseTurn;
+        public int WhoseTurn { get { return this.whoseTurn; } }
+
         public Combat(IFight fighterOne, IFight fighterTwo)
         {
             this.combatant1 = fighterOne;
             this.combatant2 = fighterTwo;
+            whoseTurn = 1;
         }
 
-        public Dictionary<string,string> Combatant1GetStatus()
+        private Dictionary<string,string> ReturnStatus(IFight fighterOfInterest)
         {
             // Returns a Dictionary<string,string> of Stat Name: Status Value
             throw new NotImplementedException();
+        } 
+
+        public bool CombatIsOver()
+        {
+            return (combatant1.IsDead() || combatant2.IsDead());
         }
-        public Dictionary<string, string> Combatant2GetStatus()
+        public IFight ReturnWinner()
         {
-            // Returns a Dictionary<string,string> of Stat Name: Status Value
-            throw new NotImplementedException();
+            if (combatant1.CurrentHitPoints <= 0)
+            {
+                return combatant2;
+            }
+            else if (combatant2.CurrentHitPoints <= 0)
+            {
+                return combatant1;
+            }
+
+            return null;
+        }
+        public IFight ReturnLoser()
+        {
+            if (combatant1.CurrentHitPoints <= 0)
+            {
+                return combatant1;
+            }
+            else if (combatant2.CurrentHitPoints <= 0)
+            {
+                return combatant2;
+            }
+            return null;
         }
 
-        public void TakeTurn(IFight nextToAct)
+        public void drinkPotion(IFight potionDrinker)
         {
-            throw new NotImplementedException();
-        }
-        public void PlayerAttacks()
-        {
-            throw new NotImplementedException();
-        } // For now, all a player does is swing their weapon (bows suck)
-        public void MonsterAttacks()
-        {
-            throw new NotImplementedException();
+            if (potionDrinker is Hero)
+            {
+                ((Hero)potionDrinker).DrinkPotion();
+            }
         }
 
-        // commented out below to fix compile issues
-
-        //public bool IsCombatOver()
-        //{
-        //    if (combatant1 is Hero)
-        //    {
-        //        Hero hero1 = (Hero)combatant1;
-        //        if (hero1.IsDead(hero1))  // ?????????????????????
-        //            return true;
-        //    }
-        //}
-        //public IFight returnWinner()
-        //{
-        //    if (combatant1.currentHealth <= 0)
-        //    {
-        //        return combatant2;
-        //    }
-        //    else if (combatant2.currentHealth <= 0)
-        //    {
-        //        return combatant1;
-        //    }
-
-        //    return null;
-        //}
-        //public IFight returnLoser()
-        //{
-        //    if (combatant1.currentHealth <= 0)
-        //    {
-        //        return combatant1;
-        //    }
-        //    else if (combatant2.currentHealth <= 0)
-        //    {
-        //        return combatant2;
-        //    }
-
-        //    return null;
-        //}
-
-        public bool Calculate_AttackerHitDefender()
+        private bool Calculate_AttackerHitDefender()
         {
-            // There is no miss mechanic in the game at the moment.
+            // There is no miss mechanic in the game at the moment. Auto-returns true.
             return true;
         }
-        public void AttemptToFlee()
+        private bool CanFlee()
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

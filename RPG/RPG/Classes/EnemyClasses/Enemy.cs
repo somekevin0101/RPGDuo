@@ -20,10 +20,10 @@ namespace RPG.Classes.EnemyClasses
             get { return this.currentHitPoints; }
         }
 
-        protected int baseDamage;
-        public int BaseDamage
+        protected int strength;
+        public int Strength
         {
-            get { return this.baseDamage; }
+            get { return this.strength; }
         }
 
         protected int endurance;
@@ -40,7 +40,7 @@ namespace RPG.Classes.EnemyClasses
         public int DamageDone()
         {
             Random random = new Random();
-            int randomDamage = (baseDamage * random.Next(1, 100)) / 50;
+            int randomDamage = (strength * random.Next(1, 100)) / 50;
             return randomDamage;
 
         }
@@ -50,14 +50,10 @@ namespace RPG.Classes.EnemyClasses
             Console.WriteLine("Arrrrrrghhhhh I'm Deaaaad!!!!");
             Console.WriteLine("");
         }
-        public void Fight()
+        public bool IsDead()
         {
-
+            return CurrentHitPoints <= 0;
         }
 
-        public bool Flee()
-        {
-            return true;
-        }
     }
 }

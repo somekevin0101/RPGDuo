@@ -12,7 +12,7 @@ namespace RPG.Classes.EnemyClasses
         {
             maxHitPoints = 50;
             currentHitPoints = 50;
-            baseDamage = 5;
+            strength = 5;
             endurance = 5;
             reputationIncreaseUponDeath = 10;
 
