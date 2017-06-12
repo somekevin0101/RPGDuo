@@ -1,2 +1,2 @@
 # RPGDuo
-a short role playing game in c# 
+a short text-based role playing game in c# 
