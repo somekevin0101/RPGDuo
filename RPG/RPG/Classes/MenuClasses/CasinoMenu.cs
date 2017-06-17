@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 using RPG.Classes.EnemyClasses;
 using RPG.Classes.HeroClasses;
 using RPG.Classes.MenuClasses;
 using RPG.Classes;
 using RPG.Classes.CasinoGames;
+using RPG.Classes.Interfaces;
 
 namespace RPG.Classes.MenuClasses
 {
     public class CasinoMenu
     {
+        readonly string RumorConnect = ConfigurationManager.ConnectionStrings["RumorConnection"].ConnectionString;
+
         public void Display(Hero player)
         {
             Console.WriteLine("The smell of sour beer fills the room, it appears you can choose to play a game or drink beer");
@@ -68,7 +72,7 @@ namespace RPG.Classes.MenuClasses
                     Console.WriteLine("You walk through the casino and strike up a conversation with a talkative patron");
                     Console.WriteLine("");
 
-                    SQLRumorsDAL rumor = new SQLRumorsDAL();
+                    IRumorDAL rumor = new SQLRumorsDAL(RumorConnect);
                     List<string> rumors = new List<string>();
                     rumors = rumor.GetRumor(player);
 

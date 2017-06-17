@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -60,7 +61,7 @@
     <Compile Include="Classes\MenuClasses\HallMenu.cs" />
     <Compile Include="Classes\MenuClasses\HeroSelector.cs" />
     <Compile Include="Classes\MenuClasses\InnMenu.cs" />
-    <Compile Include="Classes\MenuClasses\SQLRumorsDAL.cs" />
+    <Compile Include="Classes\DAL\SQLRumorsDAL.cs" />
     <Compile Include="Classes\MenuClasses\StoreMenu.cs" />
     <Compile Include="Classes\MenuClasses\TownMenu.cs" />
     <Compile Include="Classes\Combat\CombatMain.cs" />
