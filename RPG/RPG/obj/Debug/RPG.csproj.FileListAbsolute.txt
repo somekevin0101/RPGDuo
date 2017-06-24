@@ -13,3 +13,10 @@ C:\Users\Kevin Ye\Documents\RPGDuo\RPG\RPG\bin\Debug\SQLScripts\RPGDuoScript.sql
 C:\Users\Kevin Ye\Documents\RPGDuo\RPG\RPG\bin\Debug\RPG.exe.config
 C:\Users\Kevin Ye\Documents\RPGDuo\RPG\RPG\bin\Debug\RPG.exe
 C:\Users\Kevin Ye\Documents\RPGDuo\RPG\RPG\bin\Debug\RPG.pdb
+C:\Users\Somervilles\github projects\RPGDuo\RPG\RPG\bin\Debug\RPG.exe.config
+C:\Users\Somervilles\github projects\RPGDuo\RPG\RPG\obj\Debug\RPG.csprojResolveAssemblyReference.cache
+C:\Users\Somervilles\github projects\RPGDuo\RPG\RPG\bin\Debug\SQLScripts\RPGDuoScript.sql
+C:\Users\Somervilles\github projects\RPGDuo\RPG\RPG\bin\Debug\RPG.exe
+C:\Users\Somervilles\github projects\RPGDuo\RPG\RPG\bin\Debug\RPG.pdb
+C:\Users\Somervilles\github projects\RPGDuo\RPG\RPG\obj\Debug\RPG.exe
+C:\Users\Somervilles\github projects\RPGDuo\RPG\RPG\obj\Debug\RPG.pdb

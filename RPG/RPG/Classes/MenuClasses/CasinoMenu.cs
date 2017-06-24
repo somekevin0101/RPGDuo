@@ -114,7 +114,7 @@ namespace RPG.Classes.MenuClasses
 
         public void PlayRoulette(Hero player)
         {
-            Roulette roulette = new Roulette();
+            Roulette roulette = new Roulette(player);
 
             if (player.Money < 5)
             {

@@ -8,6 +8,11 @@ namespace RPG.Classes.CasinoGames
 {
     public class Roulette
     {
+        public Roulette(RPG.Classes.Hero player)
+        {
+            this.player = player;
+        }
+        public Hero player;
         private int moneyWon = 0;
 
         public int RouletteSpecificNumber()
@@ -69,21 +74,19 @@ namespace RPG.Classes.CasinoGames
 
             Console.WriteLine(result + " is a winner!");
             Console.WriteLine("");
-
-            if (result.ToString() == numInput)
+            for (int i = 0; i < player.Luck; i++)
             {
-                Console.WriteLine("You won 150 coins!!!!");
-                Console.WriteLine("");
-
-                return moneyWon = 150;
+                if (result.ToString() == numInput)
+                {
+                    Console.WriteLine("You won 150 coins!!!!");
+                    Console.WriteLine("");
+                    return moneyWon = 150;
+                }
+                result = random.Next(0, 37);
             }
-            else
-            {
-                Console.WriteLine("You lost your 5 coin bet. Better luck next time");
-                Console.WriteLine("");
-
-                return moneyWon = -5;
-            }
+            Console.WriteLine("You lost your 5 coin bet. Better luck next time");
+            Console.WriteLine("");
+            return moneyWon = -5;
         }
 
         public int CalculateRouletteRedOrBlack(string inputColor)
@@ -91,6 +94,27 @@ namespace RPG.Classes.CasinoGames
             Random random = new Random();
             int result = random.Next(0, 2);
 
+
+            for (int i = 0; i <= player.Luck/2; i++)
+            {
+                if ((inputColor == "red" && result == 0) || inputColor == "black" && result == 1)
+                {
+                    WriteWinningColor(result);
+                    Console.WriteLine("You won 5 coins");
+                    Console.WriteLine("");
+
+                    return moneyWon = 5;
+                }
+                result = random.Next(0, 2);
+            }
+            WriteWinningColor(result);
+            Console.WriteLine("Sorry you lost this time");
+            Console.WriteLine("");
+            return moneyWon = (-5);
+        }
+
+        private void WriteWinningColor(int result)
+        {
             if (result == 0)
             {
                 Console.WriteLine("Red is a winner!");
@@ -100,22 +124,6 @@ namespace RPG.Classes.CasinoGames
             {
                 Console.WriteLine("Black is a winner!");
                 Console.WriteLine("");
-            }
-
-            if ((inputColor == "red" && result == 0) || inputColor == "black" && result == 1)
-            {
-
-                Console.WriteLine("You won 5 coins");
-                Console.WriteLine("");
-
-                return moneyWon = 5;
-            }
-            else
-            {
-                Console.WriteLine("Sorry you lost this time");
-                Console.WriteLine("");
-
-                return moneyWon = (-5);
             }
         }
     }
