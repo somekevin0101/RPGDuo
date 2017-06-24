@@ -61,6 +61,13 @@ namespace RPG.Classes.MenuClasses
 
                 else if (input == "2" || input == "(2)")
                 {
+                    if (player.IsTooLucky)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("We don't like cheaters around here, get out!!!!");
+                        Console.WriteLine();
+                        break;
+                    }
                     Console.WriteLine("An unscrupulous character asks you to place a bet");
                     Console.WriteLine("");
                     PlayRoulette(player);
@@ -131,12 +138,29 @@ namespace RPG.Classes.MenuClasses
                 {
                     int moneyWon = 0;
                     moneyWon = roulette.RouletteSpecificNumber();
+
+                    player.GamblingAttemptsCounter();
+
+                    if(moneyWon > 0)
+                    {
+                        player.GamblingSuccessesCounter();
+                    }
+
                     player.ChangeMoney(moneyWon);
+
                 }
                 else if (userInput == "2" || userInput == "(2)")
                 {
                     int moneyWon = 0;
                     moneyWon = roulette.RouletteBlackOrRed();
+
+                    player.GamblingAttemptsCounter();
+                    
+                    if(moneyWon > 0)
+                    {
+                        player.GamblingSuccessesCounter();
+                    }
+
                     player.ChangeMoney(moneyWon);
                 }
                 else
