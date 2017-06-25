@@ -9,7 +9,6 @@ namespace RPG.Classes
 {
     public abstract class Hero : IFight
     {
-        static int potionsHealFor = 100;
 
         protected string name;
         public string Name
@@ -40,11 +39,11 @@ namespace RPG.Classes
         {
             get
             {
-                if(beersDrunk > 0 && beersDrunk < 3)
+                if (beersDrunk > 0 && beersDrunk < 3)
                 {
                     return this.strength + 10;
                 }
-                else if(beersDrunk > 3 && beersDrunk < 10)
+                else if (beersDrunk > 3 && beersDrunk < 10)
                 {
                     return this.strength - 5;
                 }
@@ -116,7 +115,7 @@ namespace RPG.Classes
 
         protected double gamblingSuccesses;
         public double GamblingSuccesses
-        {   
+        {
             get { return this.gamblingSuccesses; }
         }
 
@@ -125,11 +124,11 @@ namespace RPG.Classes
         {
             get
             {
-                if(gamblingAttempts < 6)
+                if (gamblingAttempts < 6)
                 {
                     return false;
                 }
-                else if((gamblingSuccesses/ gamblingAttempts) >= .75)
+                else if ((gamblingSuccesses / gamblingAttempts) >= .75)
                 {
                     return true;
                 }
@@ -140,35 +139,27 @@ namespace RPG.Classes
             }
         }
 
+        public bool IsDead { get; set; }
+
         protected int beersDrunk;
         public int BeersDrunk
         {
             get { return this.beersDrunk; }
         }
 
-        protected List<HealthPotion> potionList = new List<HealthPotion>();
-        public List<HealthPotion> PotionList
+        protected List<IItem> inventoryList = new List<IItem>();
+        public List<IItem> InventoryList
         {
-            get
-            {
-                { return this.potionList; }
-                
-            }
-        }
-
-        protected List<Weapon> weaponList = new List<Weapon>();
-        public List<Weapon> WeaponList
-        {
-            get { return this.weaponList; }
+            get { return this.inventoryList; }
         }
 
         public void ChangeHitPoints(int changedAmount)
         {
-            if(changedAmount > 200)
+            if (changedAmount > 200)
             {
                 currentHitPoints += 200;
             }
-            else if(changedAmount < -200)
+            else if (changedAmount < -200)
             {
                 currentHitPoints += -200;
             }
@@ -184,11 +175,11 @@ namespace RPG.Classes
         }
         public void ChangeMoney(int changedAmount)
         {
-            if(changedAmount > 1000)
+            if (changedAmount > 1000)
             {
                 changedAmount += 1000;
             }
-            else if(changedAmount < -1000)
+            else if (changedAmount < -1000)
             {
                 changedAmount += -1000;
             }
@@ -203,7 +194,7 @@ namespace RPG.Classes
             strength = maxStrength;
             endurance = maxEndurance;
 
-            if(currentHitPoints < maxHitPoints)
+            if (currentHitPoints < maxHitPoints)
             {
                 currentHitPoints = maxHitPoints;
             }
@@ -213,54 +204,50 @@ namespace RPG.Classes
             Console.WriteLine("");
 
         }
-        public void AddPotion(HealthPotion potion)
+
+        public void AddItem(IItem item)
         {
-            potionList.Add(potion);
+            inventoryList.Add(item);
         }
 
-        public void RemovePotion(List<HealthPotion> potion)
-        {
-            potion.RemoveAt(0);
-        }
 
-        public void AddWeapon(Weapon weapon)
-        {
-            weaponList.Add(weapon);
-        }
 
-        public bool HasPotion(List<HealthPotion> potion)
+        public bool GetDeathStatus()
         {
-            return (potion.Count > 0);
-        }
-
-        public bool HasWeapon(List<Weapon> weapon)
-        {
-            return (weapon.Count > 0);
-        }
-
-        public bool IsDead()
-        {
-            // logic on this method may need work
-            while(true)
+            if (this.currentHitPoints > 0)
             {
+                return false;
+            }
+            else
+            {
+                IItem item = inventoryList.Where(i => i.GetType() == typeof(HealthPotion)).FirstOrDefault();
 
-                if ((currentHitPoints <= 0) && (HasPotion(potionList) == true))
+                bool containsHealthPotion = item != null;
+
+                if (!containsHealthPotion) return true;
+
+                Console.WriteLine("Do you want to drink your potion with your last dying breath? YES/NO");
+                string userInput = Console.ReadLine().ToUpper();
+                if (userInput == "Y" || userInput == "YES")
                 {
-                    Console.WriteLine("Do you want to drink your potion with your last dying breath? YES/NO");
-                    string userInput = Console.ReadLine().ToUpper();
-                    if (userInput == "Y" || userInput == "YES")
-                    {
-                        Console.WriteLine("drinking potion");
-                        potionList[0].UseItem(this);
-                        potionList.RemoveAt(0);
+                    Console.WriteLine();
+                    Console.WriteLine("drinking potion");
 
+                    item.UseItem(this);
+
+                    if(this.currentHitPoints <= 0)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("You feel the potion try to heal you but the damage is far too great....");
                     }
-                    else return currentHitPoints <= 0;
+
+                    inventoryList.Remove(item);
 
                 }
-                
+
+                return (this.currentHitPoints <= 0);
+
             }
-            
         }
 
         public virtual void BuyBeer(int numberOfBeers)
@@ -269,11 +256,11 @@ namespace RPG.Classes
             Console.WriteLine("your current number of coins is " + money);
             Console.WriteLine("");
         }
-        
+
         public virtual void DrinkBeer(int numberOfBeers)
         {
             // it does not pay to try to cheat the barkeep
-            if(numberOfBeers < 0)
+            if (numberOfBeers < 0)
             {
                 Console.WriteLine("the barkeep uses an arcane absolute value calculation and charges you accordingly");
                 Console.WriteLine("no beer for you and your reputation suffers");
@@ -298,35 +285,17 @@ namespace RPG.Classes
             }
             else if (beersDrunk > 10)
             {
-                
+
                 reputation -= 5;
 
                 Console.WriteLine("you better not fight in this condition buddy, you're drunk");
                 Console.WriteLine("go rest at the inn and sleep it off");
                 Console.WriteLine("");
             }
-            else 
+            else
             {
                 beersDrunk = 0;
             }
-        }
-        // to be added to damage from weapon (or 0 if no weapon)
-        public void DrinkPotion()
-        { 
-            if (!HasPotion(potionList))
-            {
-                return;
-            }
-            else
-            {
-                currentHitPoints += potionsHealFor;
-                if (currentHitPoints > MaxHitPoints)
-                {
-                    currentHitPoints = maxHitPoints;
-                }
-                RemovePotion(potionList);
-            }
-
         }
 
         public virtual int DamageDone()

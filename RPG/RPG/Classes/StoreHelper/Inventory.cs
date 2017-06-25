@@ -9,9 +9,9 @@ namespace RPG.Classes.StoreHelper
 {
     public class Inventory
     {
-        public List<Weapon> GetInventory()
+        public List<IItem> GetInventory()
         {
-            List<Weapon> inventoryList = new List<Weapon>();
+            List<IItem> inventoryList = new List<IItem>();
             inventoryList.Add(new BroadSword());
             inventoryList.Add(new Club());
             inventoryList.Add(new Dagger());
@@ -19,7 +19,7 @@ namespace RPG.Classes.StoreHelper
             return inventoryList;
         }
 
-        public void PrintInventory(List<Weapon> inventoryList)
+        public void PrintInventory(List<IItem> inventoryList)
         {
             Console.WriteLine("Product Number".PadRight(20) + "Product Name".PadRight(23) + "Cost");
             Console.WriteLine("");

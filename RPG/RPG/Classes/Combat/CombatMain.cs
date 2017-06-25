@@ -28,10 +28,10 @@ namespace RPG.Classes.Combat
             throw new NotImplementedException();
         } 
 
-        public bool CombatIsOver()
-        {
-            return (combatant1.IsDead() || combatant2.IsDead());
-        }
+        //public bool CombatIsOver()
+        //{
+        //    return (combatant1.GetDeathStatus() || combatant2.GetDeathStatus());
+        //}
         public IFight ReturnWinner()
         {
             if (combatant1.CurrentHitPoints <= 0)
@@ -58,13 +58,13 @@ namespace RPG.Classes.Combat
             return null;
         }
 
-        public void drinkPotion(IFight potionDrinker)
-        {
-            if (potionDrinker is Hero)
-            {
-                ((Hero)potionDrinker).DrinkPotion();
-            }
-        }
+        //public void drinkPotion(IFight potionDrinker)
+        //{
+        //    if (potionDrinker is Hero)
+        //    {
+        //        ((Hero)potionDrinker).DrinkPotion();
+        //    }
+        //}
 
         private bool Calculate_AttackerHitDefender()
         {

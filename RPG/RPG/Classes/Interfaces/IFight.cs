@@ -10,7 +10,7 @@ namespace RPG.Classes
     {
         // commented out due to compile issues
         int CurrentHitPoints { get;}
-        bool IsDead();
+        bool GetDeathStatus();
         //bool Fight();
         //  bool Flee();
 

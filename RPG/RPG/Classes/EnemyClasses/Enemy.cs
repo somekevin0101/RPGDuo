@@ -50,7 +50,7 @@ namespace RPG.Classes.EnemyClasses
             Console.WriteLine("Arrrrrrghhhhh I'm Deaaaad!!!!");
             Console.WriteLine("");
         }
-        public bool IsDead()
+        public bool GetDeathStatus()
         {
             return CurrentHitPoints <= 0;
         }

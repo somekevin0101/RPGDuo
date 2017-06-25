@@ -12,8 +12,7 @@ namespace RPG.Classes.MenuClasses
     public class TownMenu
     {
         int parsedHeroChoice = 0;
-        string name = "";
-
+      
         public void Display()
         {
             Console.WriteLine("DARKNESS........");
@@ -44,6 +43,12 @@ namespace RPG.Classes.MenuClasses
 
             while (true)
             {
+                if (player.IsDead)
+                {
+                    Console.WriteLine("******DARKNESS******");
+                    Console.WriteLine("******GAME OVER*******");
+                    break;
+                }
                 Console.WriteLine("Choose the location you want to visit in the town");
                 Console.WriteLine("(1) Thurgrand's Assorted Goods and Weapons");
                 Console.WriteLine("(2) Battle Arena");

@@ -71,14 +71,9 @@ namespace RPG.Classes.MenuClasses
                     Console.WriteLine("Reputation :" + player.Reputation.ToString());
                     Console.WriteLine("Money : " + player.Money.ToString());
 
-                    foreach(Weapon weapon in player.WeaponList)
+                    foreach(IItem item in player.InventoryList)
                     {
-                        Console.WriteLine(weapon.GetType().Name);
-                    }
-
-                    foreach(HealthPotion potion in player.PotionList)
-                    {
-                        Console.WriteLine(potion.GetType().Name);
+                        Console.WriteLine(item.GetType().Name);
                     }
                 }
 

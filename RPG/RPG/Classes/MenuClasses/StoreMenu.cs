@@ -21,6 +21,7 @@ namespace RPG.Classes.MenuClasses
             {
                 Console.WriteLine("(1) Buy a Weapon");
                 Console.WriteLine("(2) Buy a Health Potion");
+                Console.WriteLine("(3) Have me hit you really hard");
                 Console.WriteLine("(Q) Leave the store");
 
                 string input = Console.ReadLine().ToUpper();
@@ -35,7 +36,7 @@ namespace RPG.Classes.MenuClasses
                     Console.WriteLine("");
 
                     Inventory currentInventory = new Inventory();
-                    List<Weapon> weapons = currentInventory.GetInventory();
+                    List<IItem> weapons = currentInventory.GetInventory();
                     currentInventory.PrintInventory(weapons);
 
                     Console.WriteLine("What weapon would you like to purchase? (1 - 3)");
@@ -47,7 +48,7 @@ namespace RPG.Classes.MenuClasses
                         if(player.Money >= sword.Cost)
                         {
                             
-                            player.AddWeapon(sword);
+                            player.AddItem(sword);
                             player.ChangeMoney(-sword.Cost);
 
                             Console.WriteLine("Enjoy your new Broadsword!");
@@ -65,7 +66,7 @@ namespace RPG.Classes.MenuClasses
                         Club club = new Club();
                         if(player.Money >= club.Cost)
                         {
-                            player.AddWeapon(club);
+                            player.AddItem(club);
                             player.ChangeMoney(-club.Cost);
 
                             Console.WriteLine("That's a mighty club for a mighty warrior! Enjoy!");
@@ -83,7 +84,7 @@ namespace RPG.Classes.MenuClasses
                         Dagger dagger = new Dagger();
                         if(player.Money > dagger.Cost)
                         {
-                            player.AddWeapon(dagger);
+                            player.AddItem(dagger);
                             player.ChangeMoney(-dagger.Cost);
 
                             Console.WriteLine("A beautiful dagger, Enjoy!!");
@@ -115,7 +116,7 @@ namespace RPG.Classes.MenuClasses
 
                         if(userInput == "Y" || userInput == "YES")
                         {
-                            player.AddPotion(potion);
+                            player.AddItem(potion);
                             player.ChangeMoney(-potion.Cost);
 
                             Console.WriteLine();
@@ -143,6 +144,37 @@ namespace RPG.Classes.MenuClasses
                         Console.WriteLine("Unfortunately you can't afford the " + potion.Cost + " cost");
                         Console.WriteLine();
                     }
+                }
+                else if (input == "3" || input == "(3)")
+                {
+                    if(player is Priest)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("I can't hit a priest, last time I did that he died on the spot");
+                        Console.WriteLine("Geez why did you remind me of that, get out of my shop!!!!");
+                        Console.WriteLine();
+                        break;
+                    }
+                    Console.WriteLine(); 
+                    Console.WriteLine("Oh man I love it when people ask me to do that!!");
+
+                    player.ChangeHitPoints(-91);
+
+                    player.IsDead = player.GetDeathStatus();
+
+                    if (player.IsDead)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("I hit you way too hard. I hate it when this happens!");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine(player.Name + " , you sure can take a punch");
+                        Console.WriteLine();
+                    }
+                    
                 }
                 else if (input == "Q" || input == "(Q)")
                 {

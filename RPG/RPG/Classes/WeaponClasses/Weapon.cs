@@ -39,7 +39,7 @@ namespace RPG.Classes
         {
             Console.WriteLine("you ended up hurting yourself, - 20 HP");
             hero.ChangeHitPoints(-20);
-            hero.IsDead();
+            hero.GetDeathStatus();
         }
 
     }
