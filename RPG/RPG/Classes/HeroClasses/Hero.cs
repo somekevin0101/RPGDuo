@@ -77,6 +77,7 @@ namespace RPG.Classes
         {
             get { return this.maxEndurance; }
         }
+
         // modifies how much damage is done by enemy, kinda like armor and toughness combined
         // need to add modifier to fight method
         protected int endurance;
@@ -105,6 +106,38 @@ namespace RPG.Classes
         public int Luck
         {
             get { return this.luck; }
+        }
+
+        protected double gamblingAttempts;
+        public double GamblingAttempts
+        {
+            get { return this.gamblingAttempts; }
+        }
+
+        protected double gamblingSuccesses;
+        public double GamblingSuccesses
+        {   
+            get { return this.gamblingSuccesses; }
+        }
+
+        protected bool isTooLucky;
+        public bool IsTooLucky
+        {
+            get
+            {
+                if(gamblingAttempts < 6)
+                {
+                    return false;
+                }
+                else if((gamblingSuccesses/ gamblingAttempts) >= .75)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         protected int beersDrunk;
@@ -301,6 +334,16 @@ namespace RPG.Classes
             Random random = new Random();
             int baseDamage = (strength * random.Next(1, 100)) / 100;
             return baseDamage;
+        }
+
+        public void GamblingAttemptsCounter()
+        {
+            gamblingAttempts++;
+        }
+
+        public void GamblingSuccessesCounter()
+        {
+            gamblingSuccesses++;
         }
 
     }
