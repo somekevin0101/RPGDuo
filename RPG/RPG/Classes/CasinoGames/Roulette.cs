@@ -72,18 +72,20 @@ namespace RPG.Classes.CasinoGames
             Random random = new Random();
             int result = random.Next(0, 37);
 
-            Console.WriteLine(result + " is a winner!");
-            Console.WriteLine("");
-            for (int i = 0; i < player.Luck; i++)
+            for (int i = 0; i < player.Luck/3; i++)//gives a luckier player more tries to win behind the scenes
             {
                 if (result.ToString() == numInput)
                 {
+                    Console.WriteLine(result + " is a winner!");
+                    Console.WriteLine("");
                     Console.WriteLine("You won 150 coins!!!!");
                     Console.WriteLine("");
                     return moneyWon = 150;
                 }
                 result = random.Next(0, 37);
             }
+            Console.WriteLine(result + " is a winner!");
+            Console.WriteLine("");
             Console.WriteLine("You lost your 5 coin bet. Better luck next time");
             Console.WriteLine("");
             return moneyWon = -5;
@@ -92,11 +94,12 @@ namespace RPG.Classes.CasinoGames
         public int CalculateRouletteRedOrBlack(string inputColor)
         {
             Random random = new Random();
-            int result = random.Next(0, 2);
+            int result=0;
 
-
-            for (int i = 0; i <= player.Luck/2; i++)
+            for (int i = 0; i <= player.Luck/6; i++)
             {
+                result = random.Next(0, 2);
+
                 if ((inputColor == "red" && result == 0) || inputColor == "black" && result == 1)
                 {
                     WriteWinningColor(result);
@@ -105,7 +108,6 @@ namespace RPG.Classes.CasinoGames
 
                     return moneyWon = 5;
                 }
-                result = random.Next(0, 2);
             }
             WriteWinningColor(result);
             Console.WriteLine("Sorry you lost this time");
