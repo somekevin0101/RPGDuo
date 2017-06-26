@@ -15,11 +15,38 @@ namespace RPG.Classes.Combat
         private int whoseTurn;
         public int WhoseTurn { get { return this.whoseTurn; } }
 
-        public Combat(IFight fighterOne, IFight fighterTwo)
+        public void BasicCombat(Hero fighterOne, Enemy fighterTwo)
         {
-            this.combatant1 = fighterOne;
-            this.combatant2 = fighterTwo;
-            whoseTurn = 1;
+            while(fighterOne.CurrentHitPoints > 0 && fighterTwo.CurrentHitPoints > 0)
+            {
+                int damage = fighterOne.DamageDone();
+                fighterTwo.ChangeHitPoints(-(damage));
+                Console.WriteLine("The " + fighterOne.GetType().Name + " hits " + fighterTwo.GetType().Name +
+                    " for " + damage + " damage");
+                System.Threading.Thread.Sleep(1000);
+
+                bool isDead = fighterTwo.GetDeathStatus();
+                if (isDead)
+                {
+                    Console.WriteLine(fighterTwo.GetType().Name + "has lost");
+                    fighterOne.ChangeReputation(fighterTwo.ReputationIncreaseUponDeath);
+                    break;
+                }
+
+                damage = fighterTwo.DamageDone();
+                fighterOne.ChangeHitPoints(-(damage));
+                Console.WriteLine("The " + fighterTwo.GetType().Name + " hits " + fighterOne.GetType().Name +
+                    " for " + damage + " damage");
+                System.Threading.Thread.Sleep(1000);
+
+                isDead = fighterOne.GetDeathStatus();
+                if (isDead)
+                {
+                    Console.WriteLine("you have died!!!");
+                    break;
+                }
+            }
+            
         }
 
         private Dictionary<string,string> ReturnStatus(IFight fighterOfInterest)
@@ -75,5 +102,9 @@ namespace RPG.Classes.Combat
         {
             return true;
         }
+
+        
     }
+
+
 }

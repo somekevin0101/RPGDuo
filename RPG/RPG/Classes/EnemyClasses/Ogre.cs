@@ -18,7 +18,7 @@ namespace RPG.Classes.EnemyClasses
 
         }
 
-        public override void DeathShriek()
+        public override void BattleCry()
         {
             Console.WriteLine("");
             Console.WriteLine("Death never takes a wise man by suprise; he is always ready to go");

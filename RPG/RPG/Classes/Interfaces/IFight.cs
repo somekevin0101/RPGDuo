@@ -11,6 +11,8 @@ namespace RPG.Classes
         // commented out due to compile issues
         int CurrentHitPoints { get;}
         bool GetDeathStatus();
+        int DamageDone();
+        void ChangeHitPoints(int changedAmount);
         //bool Fight();
         //  bool Flee();
 

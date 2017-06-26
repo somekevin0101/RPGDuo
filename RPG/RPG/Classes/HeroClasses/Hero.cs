@@ -43,11 +43,11 @@ namespace RPG.Classes
                 {
                     return this.strength + 10;
                 }
-                else if (beersDrunk > 3 && beersDrunk < 10)
+                else if (beersDrunk >= 3 && beersDrunk < 10)
                 {
                     return this.strength - 5;
                 }
-                else if (beersDrunk > 10)
+                else if (beersDrunk >= 10)
                 {
                     return this.strength - 10;
                 }
@@ -88,11 +88,11 @@ namespace RPG.Classes
                 {
                     return this.endurance + 10;
                 }
-                else if (beersDrunk > 3 && beersDrunk < 10)
+                else if (beersDrunk >=3 && beersDrunk < 10)
                 {
                     return this.endurance - 5;
                 }
-                else if (beersDrunk > 10)
+                else if (beersDrunk >= 10)
                 {
                     return this.endurance - 10;
                 }
@@ -268,7 +268,7 @@ namespace RPG.Classes
 
                 reputation -= 5;
 
-                beersDrunk += Math.Abs(numberOfBeers);
+                numberOfBeers = 0;
             }
 
             beersDrunk += numberOfBeers;
@@ -294,7 +294,7 @@ namespace RPG.Classes
             }
             else
             {
-                beersDrunk = 0;
+                Console.WriteLine("");
             }
         }
 

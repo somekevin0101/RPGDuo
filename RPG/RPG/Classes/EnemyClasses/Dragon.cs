@@ -17,11 +17,10 @@ namespace RPG.Classes.EnemyClasses
             reputationIncreaseUponDeath = 100;
         }
 
-        public override void DeathShriek()
+        public override void BattleCry()
         {
             Console.WriteLine("");
             Console.WriteLine("RRRRROOOOOOAAAAAAR!!!!!!! Cough cough.....");
-            Console.WriteLine("The dragon dies.....");
             Console.WriteLine("");
         }
     }

@@ -31,11 +31,9 @@ namespace RPG.Classes.HeroClasses
                 Console.WriteLine("no beer for you and your reputation suffers");
                 Console.WriteLine("");
 
-                endurance -= 10;
-                strength -= 10;
                 reputation -= 5;
 
-                beersDrunk += Math.Abs(numberOfBeers);
+                numberOfBeers = 0;
             }
 
             beersDrunk += numberOfBeers;

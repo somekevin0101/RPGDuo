@@ -18,7 +18,7 @@ namespace RPG.Classes.EnemyClasses
 
         }
 
-        public override void DeathShriek()
+        public override void BattleCry()
         {
             Console.WriteLine("");
             Console.WriteLine("SSQQQEEEEEEKKK SSSQQQUEEEEEK.....squeek");

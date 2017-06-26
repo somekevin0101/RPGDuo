@@ -44,10 +44,10 @@ namespace RPG.Classes.EnemyClasses
             return randomDamage;
 
         }
-        public virtual void DeathShriek()
+        public virtual void BattleCry()
         {
             Console.WriteLine("");
-            Console.WriteLine("Arrrrrrghhhhh I'm Deaaaad!!!!");
+            Console.WriteLine("I'M GOING TO EAT YOU!!!");
             Console.WriteLine("");
         }
         public bool GetDeathStatus()
@@ -55,5 +55,23 @@ namespace RPG.Classes.EnemyClasses
             return CurrentHitPoints <= 0;
         }
 
+        public void ChangeHitPoints(int changedAmount)
+        {
+            if (changedAmount > 200)
+            {
+                currentHitPoints += 200;
+            }
+            else if (changedAmount < -200)
+            {
+                currentHitPoints += -200;
+            }
+            else
+            {
+                currentHitPoints += changedAmount;
+
+            }
+
+
+        }
     }
 }

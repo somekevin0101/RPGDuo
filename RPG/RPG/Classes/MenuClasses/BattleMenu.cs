@@ -7,6 +7,7 @@ using RPG.Classes.EnemyClasses;
 using RPG.Classes.HeroClasses;
 using RPG.Classes.MenuClasses;
 using RPG.Classes;
+using RPG.Classes.Combat;
 
 namespace RPG.Classes.MenuClasses
 {
@@ -14,6 +15,8 @@ namespace RPG.Classes.MenuClasses
     {
         public void Display(Hero player)
         {
+            CombatCLI combat = new CombatCLI();
+
             Console.WriteLine("You enter a large arena, a few local citizens watch from the stands");
             while (true)
             {
@@ -30,12 +33,15 @@ namespace RPG.Classes.MenuClasses
                         Console.WriteLine("You enter the arena and as you walk around a large crowd fills the stadium.");
                         Console.WriteLine("The crowd begins to chant 'BOOGERSNOT! BOOGERSNOT! BOOGERSNOT! BOOGERSNOT'");
                     }
-                    Console.WriteLine("Get ready for battle");
+
+                    combat.HeroFightMonster(player);
                 }
+
                 else if (input == "2" || input == "(2)")
                 {
-                    Console.WriteLine("You wait an hour in the stands, and then a hero enters the arena asking to fight");
+                    combat.MonsterFightMonster();
                 }
+
                 else if (input == "Q" || input == "(Q)")
                 {
                     Console.WriteLine("You head back into town");
