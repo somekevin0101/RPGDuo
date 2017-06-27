@@ -54,6 +54,7 @@ namespace RPG.Classes.Combat
                 " and a " + monster2.GetType().Name + " emerge");
 
             Combat combat = new Combat();
+            combat.MonsterVMonsterCombat(monster1, monster2);
         }
 
         public Enemy GetRandomCombatant(Random random)

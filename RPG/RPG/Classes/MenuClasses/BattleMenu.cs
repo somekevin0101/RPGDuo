@@ -20,6 +20,11 @@ namespace RPG.Classes.MenuClasses
             Console.WriteLine("You enter a large arena, a few local citizens watch from the stands");
             while (true)
             {
+                if (player.IsDead)
+                {
+                    break;
+                }
+
                 Console.WriteLine("(1) Fight a random monster");
                 Console.WriteLine("(2) Watch someone else fight");
                 Console.WriteLine("(Q) Leave the arena");

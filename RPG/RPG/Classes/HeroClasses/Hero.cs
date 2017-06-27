@@ -301,7 +301,7 @@ namespace RPG.Classes
         public virtual int DamageDone()
         {
             Random random = new Random();
-            int baseDamage = (strength * random.Next(1, 100)) / 100;
+            int baseDamage = (strength * random.Next(1, 100)) / 50;
             return baseDamage;
         }
 

@@ -28,12 +28,16 @@ namespace RPG.Classes.Combat
                 bool isDead = fighterTwo.GetDeathStatus();
                 if (isDead)
                 {
-                    Console.WriteLine(fighterTwo.GetType().Name + "has lost");
+                    Console.WriteLine(fighterTwo.GetType().Name + " has lost");
                     fighterOne.ChangeReputation(fighterTwo.ReputationIncreaseUponDeath);
                     break;
                 }
 
-                damage = fighterTwo.DamageDone();
+                damage = (fighterTwo.DamageDone()) - (fighterOne.Endurance/5);
+                if(damage < 0)
+                {
+                    damage = 0;
+                }
                 fighterOne.ChangeHitPoints(-(damage));
                 Console.WriteLine("The " + fighterTwo.GetType().Name + " hits " + fighterOne.GetType().Name +
                     " for " + damage + " damage");
@@ -42,6 +46,7 @@ namespace RPG.Classes.Combat
                 isDead = fighterOne.GetDeathStatus();
                 if (isDead)
                 {
+                    fighterOne.IsDead = true;
                     Console.WriteLine("you have died!!!");
                     break;
                 }
@@ -60,16 +65,56 @@ namespace RPG.Classes.Combat
 
                 if (damage >= massiveDamageThreshold)
                 {
-                    Console.WriteLine("The crowd roars as the " + fighterOne.name + "hits the " + fighterTwo.name);
+                    Console.WriteLine("The crowd roars as the ");
                 }
+
+                Console.WriteLine("The " + fighterOne.GetType().Name + " hits " + fighterTwo.GetType().Name +
+                " for " + damage + " damage");
+
+                bool isDead = fighterTwo.GetDeathStatus();
+                if (isDead)
+                {
+                    fighterOne.BattleCry();
+
+                    Console.WriteLine();
+                    Console.WriteLine(fighterTwo.GetType().Name + " has lost");
+                    Console.WriteLine("The crowd cheer and chants " + fighterOne.GetType().Name.ToUpper() + "! " +
+                    fighterOne.GetType().Name.ToUpper() + "!");
+                    Console.WriteLine();
+
+                    break;
+                }
+
+                System.Threading.Thread.Sleep(1000);
+
 
                 damage = fighterTwo.DamageDone();
                 fighterOne.ChangeHitPoints(-damage);
 
                 if (damage >= massiveDamageThreshold)
                 {
-                    Console.WriteLine("The crowd roars as the " + fighterTwo.name + "hits the " + fighterOne.name);
+                    Console.WriteLine("The crowd roars as the ");
                 }
+
+                Console.WriteLine("The " + fighterTwo.GetType().Name + " hits " + fighterOne.GetType().Name +
+                " for " + damage + " damage");
+
+                isDead = fighterOne.GetDeathStatus();
+                if (isDead)
+                {
+                    fighterTwo.BattleCry();
+
+                    Console.WriteLine();
+                    Console.WriteLine(fighterOne.GetType().Name + " has lost");
+                    Console.WriteLine("The crowd cheer and chants " + fighterTwo.GetType().Name.ToUpper() + "! " +
+                        fighterTwo.GetType().Name.ToUpper() + "!");
+                    Console.WriteLine();
+                    
+                    break;
+                }
+
+                System.Threading.Thread.Sleep(1000);
+
 
             }
         }
