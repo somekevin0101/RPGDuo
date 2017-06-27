@@ -15,6 +15,7 @@ namespace RPG.Classes.EnemyClasses
             strength = 35;
             endurance = 20;
             reputationIncreaseUponDeath = 100;
+            name = "dragon";
         }
 
         public override void BattleCry()

@@ -70,8 +70,8 @@ namespace RPG.Classes.EnemyClasses
                 currentHitPoints += changedAmount;
 
             }
-
-
         }
+
+        public string name { get; set; }
     }
 }

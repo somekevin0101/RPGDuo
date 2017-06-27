@@ -15,6 +15,7 @@ namespace RPG.Classes.EnemyClasses
             strength = 9;
             endurance = 9;
             reputationIncreaseUponDeath = 20;
+            name = "owlbear";
 
         }
 

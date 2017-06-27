@@ -49,6 +49,31 @@ namespace RPG.Classes.Combat
             
         }
 
+        public void MonsterVMonsterCombat(Enemy fighterOne, Enemy fighterTwo)
+        {
+            while (fighterOne.CurrentHitPoints > 0 && fighterTwo.CurrentHitPoints > 0)
+            {
+                const int massiveDamageThreshold = 10;
+
+                int damage = fighterOne.DamageDone();
+                fighterTwo.ChangeHitPoints(-damage);
+
+                if (damage >= massiveDamageThreshold)
+                {
+                    Console.WriteLine("The crowd roars as the " + fighterOne.name + "hits the " + fighterTwo.name);
+                }
+
+                damage = fighterTwo.DamageDone();
+                fighterOne.ChangeHitPoints(-damage);
+
+                if (damage >= massiveDamageThreshold)
+                {
+                    Console.WriteLine("The crowd roars as the " + fighterTwo.name + "hits the " + fighterOne.name);
+                }
+
+            }
+        }
+
         private Dictionary<string,string> ReturnStatus(IFight fighterOfInterest)
         {
             // Returns a Dictionary<string,string> of Stat Name: Status Value

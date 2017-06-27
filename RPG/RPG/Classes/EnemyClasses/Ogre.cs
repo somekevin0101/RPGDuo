@@ -15,6 +15,7 @@ namespace RPG.Classes.EnemyClasses
             strength = 15;
             endurance = 15;
             reputationIncreaseUponDeath = 50;
+            name = "ogre";
 
         }
 

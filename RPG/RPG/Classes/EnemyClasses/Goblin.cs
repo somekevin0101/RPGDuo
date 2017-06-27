@@ -15,6 +15,7 @@ namespace RPG.Classes.EnemyClasses
             strength = 10;
             endurance = 10;
             reputationIncreaseUponDeath = 30;
+            name = "goblin";
 
         }
     }
