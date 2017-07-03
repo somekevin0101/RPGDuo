@@ -24,6 +24,7 @@ namespace RPG.Classes.MenuClasses
             {
                 Console.WriteLine("(1) Purchase a room");
                 Console.WriteLine("(2) Check your stats");
+                Console.WriteLine("(3) Work for money");
                 Console.WriteLine("(Q) Leave the inn");
 
                 string input = Console.ReadLine().ToUpper();
@@ -77,6 +78,16 @@ namespace RPG.Classes.MenuClasses
                     }
                 }
 
+                else if (input == "3" || input == "(3)")
+                {
+                    Console.WriteLine("You want to work for some coins?  Well, get scrubbing then.");
+                    Console.WriteLine("These pots won't clean themselves!");
+                    System.Threading.Thread.Sleep(2000);
+                    Console.WriteLine("After a long day of cleaning pots, the innkeeper hands you 3 coins.");
+                    player.ChangeMoney(3);
+
+
+                }
                 else if (input == "Q" || input == "(Q)")
                 {
                     Console.WriteLine("Have a nice day");

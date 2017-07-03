@@ -68,7 +68,7 @@ namespace RPG.Classes.Combat
                     Console.WriteLine("The crowd roars as the ");
                 }
 
-                Console.WriteLine("The " + fighterOne.GetType().Name + " hits " + fighterTwo.GetType().Name +
+                Console.WriteLine(fighterOne.GetType().Name + " hits the " + fighterTwo.GetType().Name +
                 " for " + damage + " damage");
 
                 bool isDead = fighterTwo.GetDeathStatus();

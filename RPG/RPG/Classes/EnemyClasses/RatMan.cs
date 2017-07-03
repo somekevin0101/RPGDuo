@@ -15,7 +15,7 @@ namespace RPG.Classes.EnemyClasses
             strength = 5;
             endurance = 5;
             reputationIncreaseUponDeath = 10;
-
+            name = "ratman";
         }
 
         public override void BattleCry()
