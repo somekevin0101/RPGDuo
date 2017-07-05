@@ -62,9 +62,12 @@
     <Compile Include="Classes\MenuClasses\HeroSelector.cs" />
     <Compile Include="Classes\MenuClasses\InnMenu.cs" />
     <Compile Include="Classes\DAL\SQLRumorsDAL.cs" />
+    <Compile Include="Classes\MenuClasses\InventoryMenu.cs" />
     <Compile Include="Classes\MenuClasses\StoreMenu.cs" />
     <Compile Include="Classes\MenuClasses\TownMenu.cs" />
     <Compile Include="Classes\Combat\CombatMain.cs" />
+    <Compile Include="Classes\Quests\IQuest.cs" />
+    <Compile Include="Classes\Quests\QuestStep.cs" />
     <Compile Include="Classes\StoreHelper\Inventory.cs" />
     <Compile Include="Classes\WeaponClasses\BroadSword.cs" />
     <Compile Include="Classes\WeaponClasses\Dagger.cs" />

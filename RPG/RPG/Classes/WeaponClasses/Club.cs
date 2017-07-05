@@ -11,7 +11,7 @@ namespace RPG.Classes.WeaponClasses
         public Club()
         {
             cost = 15;
-            baseDamage = 10;
+            baseDamage = 7;
         }
      
     }

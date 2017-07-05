@@ -141,6 +141,8 @@ namespace RPG.Classes
 
         public bool IsDead { get; set; }
 
+        public IItem EquippedWeapon { get; set; }
+
         protected int beersDrunk;
         public int BeersDrunk
         {
@@ -300,8 +302,9 @@ namespace RPG.Classes
 
         public virtual int DamageDone()
         {
+            int weaponDamage = EquippedWeapon.DamageDealt();
             Random random = new Random();
-            int baseDamage = (strength * random.Next(1, 100)) / 50;
+            int baseDamage = ((strength * random.Next(1, 100)) / 50) + weaponDamage;
             return baseDamage;
         }
 

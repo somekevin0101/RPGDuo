@@ -23,5 +23,10 @@ namespace RPG.Classes
         {
             hero.ChangeHitPoints(20);
         }
+        
+        public int DamageDealt()
+        {
+            return 0;
+        }
     }
 }

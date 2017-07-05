@@ -10,5 +10,6 @@ namespace RPG.Classes
     {
         int Cost { get;}
         void UseItem(Hero hero);
+        int DamageDealt();
     }
 }

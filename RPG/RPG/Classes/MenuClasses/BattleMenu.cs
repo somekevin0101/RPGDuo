@@ -27,13 +27,14 @@ namespace RPG.Classes.MenuClasses
 
                 Console.WriteLine("(1) Fight a random monster");
                 Console.WriteLine("(2) Watch someone else fight");
+                Console.WriteLine("(3) Choose a weapon from inventory to fight with");
                 Console.WriteLine("(Q) Leave the arena");
 
                 string input = Console.ReadLine().ToUpper();
 
                 if (input == "1" || input == "(1)")
                 {
-                    if(player.Name == "Boogersnot")
+                    if (player.Name == "Boogersnot")
                     {
                         Console.WriteLine("You enter the arena and as you walk around a large crowd fills the stadium.");
                         Console.WriteLine("The crowd begins to chant 'BOOGERSNOT! BOOGERSNOT! BOOGERSNOT! BOOGERSNOT'");
@@ -45,6 +46,13 @@ namespace RPG.Classes.MenuClasses
                 else if (input == "2" || input == "(2)")
                 {
                     combat.MonsterFightMonster();
+                }
+
+                else if (input == "3" || input == "(3)")
+                {
+                    InventoryMenu menu = new InventoryMenu();
+
+                    menu.Display(player);
                 }
 
                 else if (input == "Q" || input == "(Q)")

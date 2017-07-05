@@ -11,7 +11,7 @@ namespace RPG.Classes
         public BroadSword()
         {
             cost = 25;
-            baseDamage = 15;
+            baseDamage = 10;
         }
     }
 }

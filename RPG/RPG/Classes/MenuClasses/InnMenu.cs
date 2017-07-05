@@ -65,6 +65,7 @@ namespace RPG.Classes.MenuClasses
                 {
                     // this should be pulled out into a method
                     Console.WriteLine("Here are your current stats:");
+                    Console.WriteLine("Equipped Weapon: " + player.EquippedWeapon.GetType().Name);
                     Console.WriteLine("HP: " + player.CurrentHitPoints.ToString());
                     Console.WriteLine("Strength: " + player.Strength.ToString());
                     Console.WriteLine("Endurance: " + player.Endurance.ToString());

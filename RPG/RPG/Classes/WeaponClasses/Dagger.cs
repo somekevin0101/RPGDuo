@@ -11,7 +11,7 @@ namespace RPG.Classes
         public Dagger()
         {
             cost = 10;
-            baseDamage = 5;
+            baseDamage = 4;
         }
     }
 }
