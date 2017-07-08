@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPG.Classes.WeaponClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace RPG.Classes.HeroClasses
             maxHitPoints = 125;
             currentHitPoints = 125;
             maxEndurance = 15;
+            EquippedWeapon = new BareHands();
             endurance = 15;
             maxStrength = 13;
             strength = 13;

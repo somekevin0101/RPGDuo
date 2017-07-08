@@ -18,7 +18,7 @@ namespace RPG.Classes.MenuClasses
             Console.WriteLine("DARKNESS........");
             Console.WriteLine("");
             Console.WriteLine("");
-            Console.WriteLine("You hear a low rumbling voice. A powerfull voice and yet the words are indistint. Fragments of their speech");
+            Console.WriteLine("You hear a low rumbling voice. A powerfull voice and yet the words are indistinct. Fragments of their speech");
             Console.WriteLine("can be heard... hero.... begin again.... save..... lost....");
             Console.WriteLine("");
             Console.WriteLine("The darkness begins to fade and you realize you must make a choice about your nature");

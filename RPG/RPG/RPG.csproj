@@ -69,6 +69,7 @@
     <Compile Include="Classes\Quests\IQuest.cs" />
     <Compile Include="Classes\Quests\QuestStep.cs" />
     <Compile Include="Classes\StoreHelper\Inventory.cs" />
+    <Compile Include="Classes\WeaponClasses\BareHands.cs" />
     <Compile Include="Classes\WeaponClasses\BroadSword.cs" />
     <Compile Include="Classes\WeaponClasses\Dagger.cs" />
     <Compile Include="Classes\ItemClasses\HealthPotion.cs" />

@@ -23,7 +23,7 @@ namespace RPG.Classes.MenuClasses
                 }
             }
 
-            if(weaponList.Count < 0)
+            if(weaponList.Count == 0)
             {
                 Console.WriteLine("There are no weapons in inventory");
                 Console.WriteLine();
