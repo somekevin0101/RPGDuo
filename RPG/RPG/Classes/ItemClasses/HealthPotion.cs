@@ -8,11 +8,19 @@ namespace RPG.Classes
 {
     public class HealthPotion : IItem
     {
+
+        public string itemName
+        {
+            get { return "Health Potion"; }
+        }
+
+
         protected int cost;
         public int Cost
         {
             get { return this.cost; }
         }
+
 
         public HealthPotion()
         {

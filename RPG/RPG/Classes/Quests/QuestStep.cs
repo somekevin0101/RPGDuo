@@ -10,22 +10,71 @@ namespace RPG.Classes.Interfaces
 {
     public abstract class QuestStep
     {
+
+        private Hero hero;
         string questText { get; set; }
         List<IItem> QuestItemsNeeded { get; set; }
         List<Enemy> QuestEnemies { get; set; }
 
-        public abstract void Step(); // This contains the main logic of the quest
-
-        public Boolean PlayerHasQuestItems()
+        public QuestStep(Hero hero, string questText, List<IItem> itemsNeeded, List<Enemy> enemies)
         {
-            foreach(IItem questItem in QuestItemsNeeded)
+            this.hero = hero;
+            this.questText = questText;
+            this.QuestItemsNeeded = itemsNeeded;
+            this.QuestEnemies = enemies;
+        }
+
+        public Boolean StepComplete()// This contains the main logic of the quest
+                                     // returns TRUE if step is completed, FALSE otherwise
+        {
+            foreach (IItem questItem in QuestItemsNeeded)
             {
-
+                if (!PlayerHasItem(questItem))
+                {
+                    return false;
+                }
+                else if (!GiveAwayQuestItem(questItem))
+                {
+                    return false;
+                }
             }
+            //Logic for beating up enemies still needs to be implemented
+            throw new NotImplementedException();
+        }
 
+        public Boolean PlayerHasItem(IItem itemDesired)
+        {
+            foreach(IItem playerItem in hero.InventoryList)
+            {
+                if( playerItem.itemName == itemDesired.itemName)
+                {
+                    return true;
+                }
+            }
             return false;
         }
 
+        public Boolean GiveAwayQuestItem(IItem questItem)
+        {
+            foreach(IItem playerItem in hero.InventoryList)
+            {
+                if (playerItem.itemName == questItem.itemName)
+                {
+                    hero.InventoryList.Remove(playerItem);
+                    return true;
+                }
+            }
+            return false;
+        }
 
+        public Boolean AllMonstersDefeated()
+        {
+            return QuestEnemies.Count == 0;
+        }
+        
+        public void FightMonsters()
+        {
+
+        }
     }
 }
