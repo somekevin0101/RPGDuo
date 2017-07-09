@@ -13,7 +13,7 @@ namespace RPG.Classes.Quests
     {
         public QuestForTheHolyMcGuffin(Hero hero)
         {
-            QuestStep 
+           // QuestStep 
         }
     }
 }

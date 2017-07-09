@@ -9,7 +9,7 @@ namespace RPG.Classes
     public class HealthPotion : IItem
     {
 
-        public string itemName
+        public string ItemName
         {
             get { return "Health Potion"; }
         }

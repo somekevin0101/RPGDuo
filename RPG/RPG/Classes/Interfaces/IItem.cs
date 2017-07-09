@@ -8,7 +8,7 @@ namespace RPG.Classes
 {
     public interface IItem
     {
-        string itemName {get;}
+        string ItemName {get;}
         int Cost { get;}
         void UseItem(Hero hero);
         int DamageDealt();

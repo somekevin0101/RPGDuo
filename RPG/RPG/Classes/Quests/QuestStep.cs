@@ -46,7 +46,7 @@ namespace RPG.Classes.Interfaces
         {
             foreach(IItem playerItem in hero.InventoryList)
             {
-                if( playerItem.itemName == itemDesired.itemName)
+                if( playerItem.ItemName == itemDesired.ItemName)
                 {
                     return true;
                 }
@@ -58,7 +58,7 @@ namespace RPG.Classes.Interfaces
         {
             foreach(IItem playerItem in hero.InventoryList)
             {
-                if (playerItem.itemName == questItem.itemName)
+                if (playerItem.ItemName == questItem.ItemName)
                 {
                     hero.InventoryList.Remove(playerItem);
                     return true;

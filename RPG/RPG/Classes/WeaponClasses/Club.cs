@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace RPG.Classes.WeaponClasses
 {
-    public class Club : Weapon, IItem
+    public class Club : Weapon
     {
         public Club()
         {
             cost = 15;
             baseDamage = 7;
+            itemName = "Club";
         }
      
     }
