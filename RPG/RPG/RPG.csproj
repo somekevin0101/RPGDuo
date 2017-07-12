@@ -59,7 +59,7 @@
     <Compile Include="Classes\MenuClasses\BattleMenu.cs" />
     <Compile Include="Classes\MenuClasses\CasinoMenu.cs" />
     <Compile Include="Classes\MenuClasses\HallMenu.cs" />
-    <Compile Include="Classes\MenuClasses\HeroSelector.cs" />
+    <Compile Include="Classes\HeroClasses\HeroSelector.cs" />
     <Compile Include="Classes\MenuClasses\InnMenu.cs" />
     <Compile Include="Classes\DAL\SQLRumorsDAL.cs" />
     <Compile Include="Classes\MenuClasses\InventoryMenu.cs" />

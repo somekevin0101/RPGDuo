@@ -12,7 +12,7 @@ namespace RPG.Classes.EnemyClasses
         {
             maxHitPoints = 100;
             currentHitPoints = 100;
-            strength = 10;
+            strength = 12;
             endurance = 10;
             reputationIncreaseUponDeath = 30;
             name = "goblin";

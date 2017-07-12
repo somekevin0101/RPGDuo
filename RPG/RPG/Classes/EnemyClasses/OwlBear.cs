@@ -12,7 +12,7 @@ namespace RPG.Classes.EnemyClasses
         {
             maxHitPoints = 75;
             currentHitPoints = 75;
-            strength = 9;
+            strength = 10;
             endurance = 9;
             reputationIncreaseUponDeath = 20;
             name = "owlbear";
