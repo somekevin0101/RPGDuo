@@ -119,16 +119,12 @@ namespace RPG.Classes.Combat
             }
         }
 
-        private Dictionary<string,string> ReturnStatus(IFight fighterOfInterest)
+        private Dictionary<string,string> GetStatus(IFight fighterOfInterest)
         {
             // Returns a Dictionary<string,string> of Stat Name: Status Value
             throw new NotImplementedException();
         } 
 
-        //public bool CombatIsOver()
-        //{
-        //    return (combatant1.GetDeathStatus() || combatant2.GetDeathStatus());
-        //}
         public IFight ReturnWinner()
         {
             if (combatant1.CurrentHitPoints <= 0)
@@ -142,6 +138,7 @@ namespace RPG.Classes.Combat
 
             return null;
         }
+
         public IFight ReturnLoser()
         {
             if (combatant1.CurrentHitPoints <= 0)
@@ -155,15 +152,7 @@ namespace RPG.Classes.Combat
             return null;
         }
 
-        //public void drinkPotion(IFight potionDrinker)
-        //{
-        //    if (potionDrinker is Hero)
-        //    {
-        //        ((Hero)potionDrinker).DrinkPotion();
-        //    }
-        //}
-
-        private bool Calculate_AttackerHitDefender()
+        private bool AttackHits()
         {
             // There is no miss mechanic in the game at the moment. Auto-returns true.
             return true;
