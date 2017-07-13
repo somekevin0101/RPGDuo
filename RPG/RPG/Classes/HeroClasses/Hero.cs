@@ -212,8 +212,6 @@ namespace RPG.Classes
             inventoryList.Add(item);
         }
 
-
-
         public bool GetDeathStatus()
         {
             if (this.currentHitPoints > 0)

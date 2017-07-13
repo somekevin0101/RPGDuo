@@ -8,11 +8,11 @@ namespace RPG.Classes.WeaponClasses
 {
     class BareHands : Weapon
     {
-            public BareHands()
+            public BareHands() // Bear Hands have the same stats and cost as a mace
             {
-                cost = 0;
-                baseDamage = 0;
-            itemName = "Bare Hands";
+                cost = 15;
+                baseDamage = 7;
+                itemName = "Bear Hands";
             }
 
     }

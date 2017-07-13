@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RPG.Classes.EnemyClasses;
+using RPG.Classes.Combat;
 
 
 namespace RPG.Classes.Interfaces
@@ -14,9 +15,9 @@ namespace RPG.Classes.Interfaces
         private Hero hero;
         string questText { get; set; }
         List<IItem> QuestItemsNeeded { get; set; }
-        List<Enemy> QuestEnemies { get; set; }
+        Queue<Enemy> QuestEnemies { get; set; }
 
-        public QuestStep(Hero hero, string questText, List<IItem> itemsNeeded, List<Enemy> enemies)
+        public QuestStep(Hero hero, string questText, List<IItem> itemsNeeded, Queue<Enemy> enemies)
         {
             this.hero = hero;
             this.questText = questText;
@@ -74,7 +75,10 @@ namespace RPG.Classes.Interfaces
         
         public void FightMonsters()
         {
-
+            for (int i = 0; i < QuestEnemies.Count; i += 0)
+            {
+                
+            }
         }
     }
 }

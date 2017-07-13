@@ -17,10 +17,13 @@ namespace RPG.Classes.Combat
 
         public void BasicCombat(Hero fighterOne, Enemy fighterTwo)
         {
-            while(fighterOne.CurrentHitPoints > 0 && fighterTwo.CurrentHitPoints > 0)
+            this.whoseTurn = 1; // Start with combatant 1
+            while (fighterOne.CurrentHitPoints > 0 && fighterTwo.CurrentHitPoints > 0)
             {
+                this.whoseTurn = 1; // Combatant 1's turn!
+
                 int damage = fighterOne.DamageDone();
-                fighterTwo.ChangeHitPoints(-(damage));
+                fighterTwo.ChangeHitPoints(-(damage)); // Apply damage
                 Console.WriteLine("The " + fighterOne.GetType().Name + " hits " + fighterTwo.GetType().Name +
                     " for " + damage + " damage");
                 System.Threading.Thread.Sleep(1000);
@@ -33,6 +36,7 @@ namespace RPG.Classes.Combat
                     break;
                 }
 
+                this.whoseTurn = 2; //Combatant 2's turn!
                 damage = (fighterTwo.DamageDone()) - (fighterOne.Endurance/5);
                 if(damage < 0)
                 {
