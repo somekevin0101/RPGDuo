@@ -39,7 +39,12 @@ namespace RPG.Classes.MenuClasses
                     List<IItem> weapons = currentInventory.GetInventory();
                     currentInventory.PrintInventory(weapons);
 
-                    Console.WriteLine("What weapon would you like to purchase? (1 - 3)");
+                    Console.WriteLine("What weapon would you like to purchase? (1 - 4)");
+                    Console.WriteLine("1. A mighty broadsword");
+                    Console.WriteLine("2. A big ol' club");
+                    Console.WriteLine("3. A shiny dagger");
+                    Console.WriteLine("4. Some bear hands");
+                    Console.WriteLine("Q  Buy nothing");
                     string userInput = Console.ReadLine();
 
                     if(userInput == "1")
@@ -96,6 +101,28 @@ namespace RPG.Classes.MenuClasses
                             Console.WriteLine("");
 
                         }
+                    }
+                    else if (userInput == "4")
+                    {
+                        BearHands bearhands = new BearHands();
+                        if (player.Money > bearhands.Cost)
+                        {
+                            player.AddItem(bearhands);
+                            player.ChangeMoney(-bearhands.Cost);
+
+                            Console.WriteLine("Good choice, those bear claws will be real handy for you.");
+                            Console.WriteLine("");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You do not have enough money for that");
+                            Console.WriteLine("");
+
+                        }
+                    }
+                    else if (userInput == "Q")
+                    {
+                        break;
                     }
                     else
                     {

@@ -30,29 +30,18 @@ namespace RPG.Classes.Interfaces
         {
             foreach (IItem questItem in QuestItemsNeeded)
             {
-                if (!PlayerHasItem(questItem))
-                {
-                    return false;
-                }
-                else if (!GiveAwayQuestItem(questItem))
+                if (!GiveAwayQuestItem(questItem))
                 {
                     return false;
                 }
             }
             //Logic for beating up enemies still needs to be implemented
-            throw new NotImplementedException();
-        }
-
-        public Boolean PlayerHasItem(IItem itemDesired)
-        {
-            foreach(IItem playerItem in hero.InventoryList)
+            if (!AllMonstersDefeated())
             {
-                if( playerItem.ItemName == itemDesired.ItemName)
-                {
-                    return true;
-                }
+                FightMonsters();
             }
-            return false;
+
+            return true;
         }
 
         public Boolean GiveAwayQuestItem(IItem questItem)
@@ -75,9 +64,25 @@ namespace RPG.Classes.Interfaces
         
         public void FightMonsters()
         {
-            for (int i = 0; i < QuestEnemies.Count; i += 0)
+            while(QuestEnemies.Count != 0)
             {
-                
+                CombatCLI combat = new CombatCLI();
+
+                Console.WriteLine("You defeated an enemy!  Would you like to continue?");
+                Console.WriteLine("Enter Y for Yes, or N for no");
+                string continueFighting = Console.ReadLine().ToUpper();
+
+                combat.ScriptedBattle(hero, QuestEnemies.Dequeue());
+
+                if (hero.IsDead)
+                {
+                    return;
+                }
+
+
+
+
+
             }
         }
     }

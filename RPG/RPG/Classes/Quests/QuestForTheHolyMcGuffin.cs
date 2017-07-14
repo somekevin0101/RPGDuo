@@ -9,6 +9,8 @@ using RPG.Classes;
 
 namespace RPG.Classes.Quests
 {
+    //Sample quest
+
     public class QuestForTheHolyMcGuffin
     {
         public QuestForTheHolyMcGuffin(Hero hero)

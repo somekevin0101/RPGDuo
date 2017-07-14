@@ -6,14 +6,34 @@ using System.Threading.Tasks;
 
 namespace RPG.Classes.Interfaces
 {
-    public interface IQuest
+    public abstract class Quest
     {
-        Hero hero { get; set; }
-        string QuestName { get; set; }
-        int MinReputation {get;set;}
-        int ReputationOnCompletion { get; set; }
-        int GoldOnCompletion { get; set; }
-        List<QuestStep> Steps { get; set; }
-        int currentStep { get; set; }
+        Hero hero { get;}
+        string QuestName { get;}
+        int MinReputation {get;}
+        int ReputationOnCompletion { get;}
+        int GoldOnCompletion { get; }
+        List<QuestStep> Steps { get; }
+        int currentStep { get;}
+
+        public Quest(Hero h, string questName, int minReputation, int repOnCompletion,    
+            int goldOnCompletion, List<QuestStep> steps)
+        {
+            this.hero = h;
+            this.QuestName = questName;
+            this.MinReputation = minReputation;
+            this.ReputationOnCompletion = repOnCompletion;
+            this.GoldOnCompletion = goldOnCompletion;
+            this.Steps = steps;
+            this.currentStep = 0;
+        }
+
+        public void goQuesting()
+        {
+            if (hero.IsDead)
+            {
+                return;
+            }
+        }
     }
 }

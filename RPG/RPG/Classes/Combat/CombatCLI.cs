@@ -42,7 +42,8 @@ namespace RPG.Classes.Combat
         public void ScriptedBattle(Hero player, Enemy e) // Scripted battles for heroes vs players
                                                          // Probably going to be used mainly for quests.
         {
-
+            Combat combat = new Combat();
+            combat.BasicCombat(player, e);
         }
 
         public void MonsterFightMonster()
