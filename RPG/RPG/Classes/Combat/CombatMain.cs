@@ -31,8 +31,13 @@ namespace RPG.Classes.Combat
                 bool isDead = fighterTwo.GetDeathStatus();
                 if (isDead)
                 {
+                    Console.WriteLine();
                     Console.WriteLine(fighterTwo.GetType().Name + " has lost");
+                    Console.WriteLine();
+                    
                     fighterOne.ChangeReputation(fighterTwo.ReputationIncreaseUponDeath);
+                    Console.WriteLine("Your reputation has increased by " + fighterTwo.ReputationIncreaseUponDeath + " points");
+                    Console.WriteLine();
                     break;
                 }
 

@@ -92,6 +92,7 @@ namespace RPG.Classes.MenuClasses
 
                 else if (input == "Q" || input == "(Q)")
                 {
+                    Console.Clear();
                     Console.WriteLine("You leave the Casino");
                     Console.WriteLine("");
                     break;

@@ -120,7 +120,7 @@ namespace RPG.Classes.MenuClasses
 
                         }
                     }
-                    else if (userInput == "Q")
+                    else if (userInput == "Q" || userInput == "q")
                     {
                         break;
                     }
@@ -205,7 +205,7 @@ namespace RPG.Classes.MenuClasses
                 }
                 else if (input == "Q" || input == "(Q)")
                 {
-                    Console.WriteLine();
+                    Console.Clear();
                     Console.WriteLine("Have a nice day");
                     Console.WriteLine();
                     break;

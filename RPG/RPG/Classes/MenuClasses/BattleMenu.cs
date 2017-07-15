@@ -57,6 +57,7 @@ namespace RPG.Classes.MenuClasses
 
                 else if (input == "Q" || input == "(Q)")
                 {
+                    Console.Clear();
                     Console.WriteLine("You head back into town");
                     Console.WriteLine("");
                     break;
