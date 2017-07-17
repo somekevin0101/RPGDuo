@@ -10,9 +10,9 @@ namespace RPG.Classes.WeaponClasses
     {
         public BearHands()
         {
-            cost = 0;
-            baseDamage = 0;
-            itemName = "Bare Hands";
+            cost = 15;
+            baseDamage = 7;
+            itemName = "Bear Hands";
         }
 
     }
