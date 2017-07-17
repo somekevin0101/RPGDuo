@@ -9,6 +9,9 @@ namespace RPG.Classes
 {
     public abstract class Hero : IFight
     {
+        protected Dictionary<string, bool> Quests; 
+        // This is a dictionary of quests that the hero has begun,
+        // and the boolean represents whether or not the quest has been completed.
 
         protected string name;
         public string Name

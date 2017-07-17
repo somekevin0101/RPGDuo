@@ -23,6 +23,7 @@ namespace RPG.Classes
             money = 65;
             luck = 10;
             reputation = 5;
+            Quests = new Dictionary<string, bool>();
             // potion and weapon list will have nothing in them to start
         }
     }

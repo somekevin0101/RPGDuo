@@ -55,6 +55,7 @@
     <Compile Include="Classes\HeroClasses\Barbarian.cs" />
     <Compile Include="Classes\HeroClasses\Knight.cs" />
     <Compile Include="Classes\HeroClasses\Priest.cs" />
+    <Compile Include="Classes\ItemClasses\QuestItem.cs" />
     <Compile Include="Classes\Interfaces\IRumorDAL.cs" />
     <Compile Include="Classes\MenuClasses\BattleMenu.cs" />
     <Compile Include="Classes\MenuClasses\CasinoMenu.cs" />

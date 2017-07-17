@@ -14,10 +14,10 @@ namespace RPG.Classes.Interfaces
 
         private Hero hero;
         string questText { get; set; }
-        List<IItem> QuestItemsNeeded { get; set; }
-        Queue<Enemy> QuestEnemies { get; set; }
+        private List<QuestItem> QuestItemsNeeded;
+        private Queue<Enemy> QuestEnemies;
 
-        public QuestStep(Hero hero, string questText, List<IItem> itemsNeeded, Queue<Enemy> enemies)
+        public QuestStep(Hero hero, string questText, List<QuestItem> itemsNeeded, Queue<Enemy> enemies)
         {
             this.hero = hero;
             this.questText = questText;
@@ -28,29 +28,38 @@ namespace RPG.Classes.Interfaces
         public Boolean StepComplete()// This contains the main logic of the quest
                                      // returns TRUE if step is completed, FALSE otherwise
         {
-            foreach (IItem questItem in QuestItemsNeeded)
+            foreach (QuestItem questItem in QuestItemsNeeded)
             {
-                if (!GiveAwayQuestItem(questItem))
+                if (!TurnInQuestItem(questItem))
                 {
                     return false;
                 }
             }
-            //Logic for beating up enemies still needs to be implemented
-            if (!AllMonstersDefeated())
+            if (!AllMonstersDefeated()) // If there are still monsters left, fight them.
             {
                 FightMonsters();
+                if (!AllMonstersDefeated())// Because the user can still back out early without fighting
+                {                        // all the monsters at once, we need to check and see if they're                                 
+                    return false;        // actually done or have just backed out for now.
+                }
             }
-
             return true;
         }
 
-        public Boolean GiveAwayQuestItem(IItem questItem)
+        public void GivePlayerQuestItem(QuestItem questItem)
         {
-            foreach(IItem playerItem in hero.InventoryList)
+            hero.AddItem(questItem);
+        }
+
+        public Boolean TurnInQuestItem(QuestItem questItem)
+        {
+            foreach (IItem playerItem in hero.InventoryList)
+            // Remove the first item with the same name as the quest item required.
             {
                 if (playerItem.ItemName == questItem.ItemName)
                 {
                     hero.InventoryList.Remove(playerItem);
+                    QuestItemsNeeded.Remove(questItem);
                     return true;
                 }
             }
@@ -61,16 +70,12 @@ namespace RPG.Classes.Interfaces
         {
             return QuestEnemies.Count == 0;
         }
-        
+
         public void FightMonsters()
         {
-            while(QuestEnemies.Count != 0)
+            while (QuestEnemies.Count != 0)
             {
                 CombatCLI combat = new CombatCLI();
-
-                Console.WriteLine("You defeated an enemy!  Would you like to continue?");
-                Console.WriteLine("Enter Y for Yes, or N for no");
-                string continueFighting = Console.ReadLine().ToUpper();
 
                 combat.ScriptedBattle(hero, QuestEnemies.Dequeue());
 
@@ -78,11 +83,17 @@ namespace RPG.Classes.Interfaces
                 {
                     return;
                 }
+                if (QuestEnemies.Count != 0) // Continue if there are still enemies
+                {
+                    Console.WriteLine("You defeated an enemy!  Would you like to continue?");
+                    Console.WriteLine("Enter Y for Yes, or N for no");
+                    string continueFighting = Console.ReadLine().ToUpper();
 
-
-
-
-
+                    if (continueFighting == "N")
+                    {
+                        break;
+                    }
+                }
             }
         }
     }

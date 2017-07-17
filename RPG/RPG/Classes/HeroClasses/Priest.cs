@@ -22,6 +22,7 @@ namespace RPG.Classes.HeroClasses
             money = 50;
             luck = 10;
             reputation = 30;
+            Quests = new Dictionary<string, bool>();
         }
 
         public override void DrinkBeer(int numberOfBeers)

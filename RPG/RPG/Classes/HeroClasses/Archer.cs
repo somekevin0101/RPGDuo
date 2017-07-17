@@ -23,6 +23,7 @@ namespace RPG.Classes.HeroClasses
             money = 15;
             luck = 5;
             reputation = 10;
+            Quests = new Dictionary<string, bool>();
         }
 
     }
