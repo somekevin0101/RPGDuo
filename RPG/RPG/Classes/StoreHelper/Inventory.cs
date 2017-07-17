@@ -15,6 +15,7 @@ namespace RPG.Classes.StoreHelper
             inventoryList.Add(new BroadSword());
             inventoryList.Add(new Club());
             inventoryList.Add(new Dagger());
+            inventoryList.Add(new BearHands());
 
             return inventoryList;
         }

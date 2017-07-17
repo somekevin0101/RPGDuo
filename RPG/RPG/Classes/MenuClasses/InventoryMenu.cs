@@ -49,11 +49,13 @@ namespace RPG.Classes.MenuClasses
             Int32.TryParse(userInput, out userNumber);
             if(userNumber <= 0 || userNumber > weaponList.Count)
             {
+                Console.Clear();
                 Console.WriteLine("That was not a valid number");
             }
             else
             {
                 player.EquippedWeapon = weaponList[userNumber - 1];
+                Console.Clear();
                 Console.WriteLine("You have equipped a " + weaponList[userNumber - 1].GetType().Name);
             }
 
