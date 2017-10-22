@@ -13,7 +13,7 @@ namespace RPG.Classes.EnemyClasses
             maxHitPoints = 500;
             currentHitPoints = 500;
             strength = 30;
-            endurance = 20;
+            endurance = 5;
             reputationIncreaseUponDeath = 100;
             name = "dragon";
         }

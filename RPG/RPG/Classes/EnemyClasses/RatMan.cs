@@ -13,7 +13,7 @@ namespace RPG.Classes.EnemyClasses
             maxHitPoints = 50;
             currentHitPoints = 50;
             strength = 8;
-            endurance = 5;
+            endurance = 1;
             reputationIncreaseUponDeath = 10;
             name = "ratman";
         }

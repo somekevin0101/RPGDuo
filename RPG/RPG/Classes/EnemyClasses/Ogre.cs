@@ -13,7 +13,7 @@ namespace RPG.Classes.EnemyClasses
             maxHitPoints = 150;
             currentHitPoints = 150;
             strength = 15;
-            endurance = 15;
+            endurance = 5;
             reputationIncreaseUponDeath = 50;
             name = "ogre";
 

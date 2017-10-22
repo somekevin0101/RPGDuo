@@ -20,3 +20,4 @@ C:\Users\Somervilles\github projects\RPGDuo\RPG\RPG\bin\Debug\RPG.exe
 C:\Users\Somervilles\github projects\RPGDuo\RPG\RPG\bin\Debug\RPG.pdb
 C:\Users\Somervilles\github projects\RPGDuo\RPG\RPG\obj\Debug\RPG.exe
 C:\Users\Somervilles\github projects\RPGDuo\RPG\RPG\obj\Debug\RPG.pdb
+C:\Users\Somervilles\github projects\RPGDuo\RPG\RPG\obj\Debug\RPG.csproj.CoreCompileInputs.cache

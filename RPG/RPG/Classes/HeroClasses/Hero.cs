@@ -319,5 +319,9 @@ namespace RPG.Classes
             gamblingSuccesses++;
         }
 
+        public virtual void BattleCry()
+        {
+            //a silly battle cry is beneath the dignity of a hero
+        }
     }
 }
